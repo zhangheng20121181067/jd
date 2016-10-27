@@ -1,0 +1,2348 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<script type="text/javascript">
+	(function(w){
+		function isMobilePhone() {
+			/**
+			* getCookie  获取指定cookie值
+			* @param sName   指定参数
+			*/
+			function getCookie(sName) {
+				var sCookies = document.cookie ;
+				if ("string" == typeof(sName)) {
+					var sRE = "(?:; )?"+sName+"=([^;]*);?" ;
+					var reRE = new RegExp(sRE) ;
+					if (reRE.test(sCookies)) {
+						return decodeURIComponent(RegExp["$1"]) ;
+					} else {
+						return null ;
+					}
+				} else {
+					return sCookies ;
+				}
+			}
+			/**
+			* getBeforeUrlType    获取上一页面来源信息
+			* @param result    0——无源头页面，1——来源为微信手Q，2——来源为普通的m端，3——来源为京致衣橱APP，4——来源为京东app，5——来源为pc(pad逻辑和pc一样)
+			*/
+			function getBeforeUrlType() {
+				var url = document.referrer , stateResult = 0, _userAgent = window.navigator.userAgent.toLocaleLowerCase();
+												if (typeof(url) !== "undefined" && url.length > 0) {
+					stateResult = /wq[a-zA-Z0-9]*\.jd\.com/.test(url) ? 1 : 2;
+					if (_userAgent.indexOf('jzyc') !== -1) {
+						stateResult = 3;
+					}else if (_userAgent.indexOf('jdapp') !== -1) {
+						stateResult = 4;
+					}else if(_userAgent.indexOf('iphone') === -1 && _userAgent.indexOf('android') === -1 && _userAgent.indexOf('windows phone') === -1){
+						stateResult = 5;
+					}
+				}
+				return stateResult;
+			}
+			/**
+			* isPcPage 是否是pc活动
+			*/
+			function isPcPage(url) {
+				var pcDomains = ['sale.jd.com', 'pinpaijie.jd.com', 'jrj.jd.com'];
+				for (var i = 0, len = pcDomains.length; i < len; i++) {
+					if (url.indexOf(pcDomains[i]) != -1) return true;
+				}
+				return false;
+			}
+			var pcPageTip = '您将要跳转到电脑版网页，会使用较多手机上网流量，是否继续？';
+			var cUrl = window.location.href;
+			var referrer = document.referrer;
+			var mIndex = '//m.jd.com/';
+
+			var mFlag = window.location.hash, pcmFlag = getCookie('pcm');
+
+			var userAgent = navigator.userAgent;
+						var beforeUrlState = getBeforeUrlType();
+						var _mUrl = "";
+						var _wqUrl = "";
+
+						if(beforeUrlState === 1 || beforeUrlState === 3){
+														window.location.href = cUrl.replace(/\/act\//,'/wq/hd/act/');
+							}
+						else if(beforeUrlState === 2 || beforeUrlState === 4){
+														var _tempUrl = cUrl.replace("//","").replace("http:","").replace("https:","");
+					var _mUrl = cUrl.replace(/sale\.jd\.com\/act/,'m.jd.com/sale/act');
+					// no sale m & mc
+					if(isPcPage(_mUrl) || mFlag == '#m' || pcmFlag == '1') {
+						if (confirm(pcPageTip)) {
+							return;
+						} else {
+							window.location.href = mIndex;
+							return;
+						}
+					}
+					if (_mUrl.indexOf('m.jd.com') != -1) {
+						window.location.href = "//h5.m.jd.com/active/fastshop/index.html?url=" + _tempUrl;
+					}
+							}
+						else if(beforeUrlState === 0){
+				if(userAgent){
+					userAgent = userAgent.toUpperCase();
+					if(userAgent.indexOf("PAD")>-1){
+						return;
+					}
+					var mobilePhoneList = ["IOS","IPHONE","ANDROID","WINDOWS PHONE"];
+					for(var i=0,len=mobilePhoneList.length;i<len;i++){
+						if(userAgent.indexOf(mobilePhoneList[i])>-1){
+																																	var mUrl = cUrl.replace(/sale\.jd\.com\/act/,'m.jd.com/sale/act');
+							// no sale m & mc
+							if(isPcPage(mUrl) || mFlag == '#m' || pcmFlag == '1') {
+								if (confirm(pcPageTip)) {
+									return;
+								} else {
+									window.location.href = mIndex;
+									return;
+								}
+							}
+							// M page
+							if (mUrl.indexOf('m.jd.com') != -1) {
+								var tempUrl = cUrl.replace("//","").replace("http:","").replace("https:","");
+								var newmUrl = "//h5.m.jd.com/active/fastshop/index.html?url="+tempUrl;
+								window.location.href = newmUrl;
+								return;
+							}
+												}
+					}
+				}
+			}
+		}
+		w.isMobilePhone = isMobilePhone;
+	})(window);
+			 isMobilePhone();
+	</script>
+	    <!--JA统计-->
+	<script>var jdpts=new Object();jdpts._st=new Date().getTime();</script>
+    <meta content="京东居·理想型 鲁能京东购房盈-主会场活动为您推荐当下最流行的品牌null,欢迎参加京东居·理想型 鲁能京东购房盈-主会场" name="description">
+    <meta content="京东居·理想型 鲁能京东购房盈-主会场,京东服饰内衣活动,京东" name="keywords">
+	<title>
+							居·理想型 鲁能京东购房盈-主会场 - 京东服饰内衣专题活动-京东
+			</title>
+	<link rel="icon" href="//www.jd.com/favicon.ico" mce_href="//www.jd.com/favicon.ico" type="image/x-icon">
+	
+		
+    <link type="text/css" rel="stylesheet"  href="//misc.360buyimg.com/jdf/1.0.0/unit/??ui-base/1.0.0/ui-base.css,shortcut/2.0.0/shortcut.css,global-header/1.0.0/global-header.css,myjd/2.0.0/myjd.css,nav/2.0.0/nav.css,shoppingcart/2.0.0/shoppingcart.css,global-footer/1.0.0/global-footer.css,service/1.0.0/service.css"/>
+	<link rel="stylesheet" type="text/css" href="//static.360buyimg.com/jshop/sale-p/view/20151221110035/css/??jdCssInit.css,css_cube_application_layout.css?t=201605122327"/>	
+	
+	<script src="//misc.360buyimg.com/jdf/lib/jquery-1.6.4.js?t=1608041619"></script>
+	<!--[if lte IE 7]><script type="text/javascript" src="//static.360buyimg.com/jshop/common/jquery/json2.js"></script><![endif]-->
+	
+	
+	<script type="text/javascript" src="//misc.360buyimg.com/??jdf/1.0.0/unit/base/1.0.0/base.js"></script>
+	<script type="text/javascript" src="//static.360buyimg.com/jshop/sale-p/view/stable/??seajs-combo.js?t=1608041619"></script>
+	
+    <style>
+		
+.layout_four_left,.layout_four_middle_left,.layout_four_middle_right,.layout_four_right{position:relative;}
+.single-place{position:absolute;bottom:0;left:0;}
+.userdefined-153704 .j-module{zoom:1; overflow:hidden;}
+.container h4{background:#fff;height:20px;padding-right:0px;}
+.container .shrink{width:20px;height:20px;background:url("//img14.360buyimg.com/cms/g14/M00/04/1C/rBEhVlHdGEUIAAAAAAAGCRctXCUAAA9BAP_9KUAAAYh058.png");float:right;margin-right:5px;}
+.container .shrink{background-position: -24px 0;}
+.container .extend{background-position:0 0;}
+.container .tips{background-position:0 -24px;width:88px;}
+.jByStages-178550 {}
+.jByStages-178550 .jd-icons {display: inline-block;*display: inline;*zoom: 1;background: url(//img14.360buyimg.com/cms/jfs/t163/186/755504084/2767/adbb829f/539679abNbcd0424b.png) 0 0 no-repeat transparent;_background: url(//img14.360buyimg.com/cms/jfs/t193/121/715678533/2175/c40f1c50/53967989N1d5b4948.png) 0 0 no-repeat transparent;vertical-align: middle;font-size: 0;line-height: 0;}
+.jByStages-178550 .jd-icons-right {width: 7px;height: 14px;background-position: 0 -79px;}
+.jByStages-178550 .jd-icons-mark {width: 63px;height: 69px;background-position: 0 0;}
+.jByStages-178550 .jd-list-cont {}
+.jByStages-178550 .jd-list-small {margin-left: -10px;}
+.jByStages-178550 .jd-list-small .item {float: left;padding:20px 0px 28px 0px;width: 240px;overflow: hidden;background-color: #fff;margin-bottom: 10px;margin-left: 10px;}
+.jByStages-178550 .jd-list-small .item:hover, .jByStages-178550 .jd-list-small .hover {border-color: #f25e54;}
+.jByStages-178550 .jd-list-small .jd-pic-link {display: block; text-align:center; height: 170px;overflow: hidden;}
+.jByStages-178550 .jd-list-small .jd-goods-name {margin-top: 2px;height: 18px;line-height: 30px; overflow: hidden;}
+.jByStages-178550 .jd-list-small .jd-goods-name a {font-size: 14px;line-height: 17px;color: #333;text-align: center;display: block;}
+.jByStages-178550 .jd-list-small .jd-stage-price {height: 22px;line-height: 22px;overflow: hidden;font-size: 12px;text-align: center;}
+.jByStages-178550 .jd-list-small .jd-stage-price .dollar {font-family: Arial,Tahoma;font-size: 12px;font-style: normal;}
+.jByStages-178550 .jd-list-small .jd-stage-price .highlight {font-size: 20px;color: #ff4800;}
+.jByStages-178550 .jd-list-small .jd-add-cart {display: block;text-align: center;height: 25px;width: 120px;line-height: 25px;background-color: #bd8f52;font-size: 16px;color: #fff;margin:15px auto 0;}
+
+	
+    </style>	
+	
+	<!-- 支持所有活动在IPAD上正常显示 -->
+	<script type="text/javascript" >
+		if(/ipad/i.test(navigator.userAgent)){
+			if(!/safari/i.test(navigator.userAgent) || /jdapp/i.test(navigator.userAgent)){
+			 jQuery('head').append('<style>.d-pad{display:none;}</style');
+			}
+		}
+	</script>
+	
+	<!--金融相关-->
+	<link rel="stylesheet" type="text/css" charset="gb2312" href="//static.360buyimg.com/finance/base/1.2.0/css/base.css?t=1608041619"/>	
+	
+	<!--金融的base，里面对baseurl重定义-->
+	<script type="text/javascript" charset="gb2312" src="//static.360buyimg.com/finance/base/1.2.0/js/base.js?t=1608041619"></script>
+
+</head>
+
+<body> 
+	<input type="hidden"  id="JSHOP_CHANNEL_FLAG" value="jr"/>
+	<input type="hidden" value="546876" id="pageInstance_appId"/>
+	<input type="hidden" value="13400842" id="pageInstance_id"/>
+	<input type="hidden"  id="moduleScript" value='<script type="text/javascript" moduleinit="module" src="//sale.jd.com/jm.htm?js=/script/module/goods-rec/GoodsRec.js,/script/module/user-define/UserDefine.js,/script/module/side-panel/side-panel.js&t=1608041619"></script>'/>
+	<input id="resourcePath" type="hidden" value="//static.360buyimg.com/jshop/sale-p/view/20151221110035/"/>
+    <input id="timestamp" type="hidden" value="201605122327"/>
+	<input id="testSidebar" type="hidden" value="test"/>
+	
+	<div class="d-pad">
+	<!--header-->
+<div class="header">
+    <!--topbar-->
+    <div class="topbar" id="topbar">
+        <div class="grid-1200 topbar-wrap clearfix">
+            <div class="topbar-left">
+                <ul class="toplink">
+                    <li class="toplink-link">
+                        <i class="icon icon-home"></i>
+                        <a target="_blank" href="//www.jd.com/">京东首页</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="topbar-right">
+                <ul class="topmenu fl">
+                    <li class="topmenu-item topmenu-userinfo">
+                        <span id="loginbar"></span>
+                    </li>
+                    <li class="topmenu-item">
+                        <a href="//trade.jr.jd.com/trade/tradebuy.action" clstag="jr|keycount|jr_shouye|jiaoyidan">我的交易单</a>
+                    </li>
+                    <li id="app-jr" class="topmenu-item dropdown topmenu-dropdown" data-hover="topmenu-dropdown-hover">
+                        <i class="drop-arrow"></i>
+                        <b class="topmenu-app-ico"></b>
+                        <a href="//m.jr.jd.com/helppage/downApp/jrAppPromote.html" target="_blank" class="topmenu-outline" clstag="jr|keycount|jr_shouye|sjjr">手机金融</a>
+                        <div class="dropbox clearfix">
+                            <div class="fl">
+                                <img src="//img30.360buyimg.com/jr_image/jfs/t2572/220/925657875/14499/68f41205/56714e10N7fa12e5b.png" />
+                            </div>
+                            <div class="fr">
+                                <span class="topmenu-app-tip">下载金融客户端</span>
+                                <a class="topmenu-app-iphone" target="_blank" href="https://itunes.apple.com/cn/app/jing-dong-jin-rong/id895682747?mt=8"></a>
+                                <a class="topmenu-app-android" target="_blank" href="//m.jr.jd.com/statics/appdown.html"></a>
+                            </div>
+                        </div>
+                    </li>
+                    <li id="topbar-help" class="topmenu-item dropdown topmenu-dropdown" data-hover="topmenu-dropdown-hover">
+                        <i class="drop-arrow"></i>
+                        <span class="topmenu-outline">联系客服</span>
+                        <ul class="dropbox">
+                            <li><a href="//jrhelp.jd.com/" target="_blank" clstag="jr|keycount|jr_shouye|help">帮助中心</a>
+                            </li>
+                            <li><a id="J_topbarFeedback" href="//ur.jr.jd.com/survey/show?id=100" target="_blank" clstag="jr|keycount|jr_shouye|topbar_feedback">我要吐槽</a>
+                            </li>
+                            <li><a id="J_topbarKf" href="//chat.jd.com/jd/chat?entry=jd_jr" target="_blank" clstag="jr|keycount|jr_shouye|topbar_kf">在线客服</a></li>
+                            <li><a href="//jimi.jd.com/index.action?source=financing" target="_blank" clstag="jr|keycount|jr_shouye|topbar_jimi">咨询JIMI</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="topmenu-item dropdown topmenu-dropdown" data-hover="topmenu-dropdown-hover">
+                        <i class="drop-arrow"></i>
+                        <a href="javascript:;" class="topmenu-sitemap">网站导航</a>
+                        <ul class="dropbox">
+                            <li><a href="//list.jr.jd.com/fundlist/1-11-112.htm" clstag="jr|keycount|jr_shouye|hdjjlc">基金理财</a>
+                            </li>
+                            <li><a href="//z.jd.com" clstag="jr|keycount|jr_shouye|hdyzc">众筹</a></li>
+                            <li><a href="//sq.jd.com/X3dvw1" target="_blank" clstag="jr|keycount|jr_shouye|hdwyqb">京东钱包</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="toplink fl">
+                    <li class="toplink-item toplink-title"> </li>
+                    <li class="toplink-item dropdown toplink-dropdown " data-hover="toplink-dropdown-hover">
+                        <i class="icon icon-weixin"></i>
+                        <ul class="dropbox dropbox-weixin">
+                            <li><img src="//static.360buyimg.com/finance/base/1.2.0/images/topbar-ercode-01.jpg" alt="京东金融"/><h6>京东金融</h6></li>
+                        </ul>
+                    </li>
+                    <li class="toplink-item dropdown toplink-dropdown" data-hover="toplink-dropdown-hover">
+                        <i class="icon icon-weibo"></i>
+                        <ul class="dropbox dropbox-weibo">
+                            <li><img src="//static.360buyimg.com/finance/base/1.2.0/images/topbar-weibo.jpg" alt="京东金融微博"/></li>
+                            <li>
+                                <div class="pub-btn btn-style-0">
+                                    <a class="size12" href="http://weibo.com/u/5057784708" target="_blank" clstag="jr|keycount|jr_shouye|hdblogjr"><img src="//static.360buyimg.com/finance/base/1.2.0/images/topbar-weibo-addbtn.png"/>京东金融</a>
+                                </div>
+                                
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            
+        </div>
+    </div>
+    <!--topbar end-->
+    <!--main-nav-->
+    <div class="main-nav">
+        <div class="grid-1200 nav-wrap pr clearfix">
+            <div class="main-nav-logo fl">
+                <a href="//jr.jd.com/index.html" clstag="jr|keycount|jr_shouye|jrlogo">
+                    <img src="//static.360buyimg.com/finance/base/1.2.0/images/logo-slogan.png" width="164" height="36" alt="京东金融" />
+                </a>
+            </div>
+            <div class="nav fl">
+                <ul class="nav-box fl clearfix" id="navBox">
+                    <li id="nav-index" class="nav-item">
+                        <a class="nav-item-primary" href="//jr.jd.com" clstag="jr|keycount|jr_shouye|shouye">首页<i></i></a>
+                    </li>
+                    <li id="nav-licai" class="nav-item">
+                        <a class="nav-item-primary" href="//licai.jd.com" clstag="jr|keycount|jr_shouye|jr_shouye_licai">理财<i></i></a>
+                        <ul class="dropbox">
+                            <i class="dropbox-mask"></i>
+                            <li><a href="//xjk.jr.jd.com/index.htm " clstag="jr|keycount|jr_shouye|jjxjk">京东小金库</a></li>
+                            <li><a href="//xiaobai.jr.jd.com/xiaobai/main.htm" clstag="jr|keycount|jr_shouye|xblc">京东小白理财</a></li>
+                            <li><a href="//list.jr.jd.com/fundlist/1-11-112.htm" clstag="jr|keycount|jr_shouye|jjlc">基金理财</a></li>
+                            <li><a href="//bill.jr.jd.com/buy/list.htm" clstag="jr|keycount|jr_shouye|pjlc">票据理财</a></li>
+                            <li><a href="//dq.jd.com/" clstag="jr|keycount|jr_shouye|bxlc">定期理财</a></li>
+                            <li><a href="//jdd.jr.jd.com/" clstag="jr|keycount|jr_shouye|fblc">固收理财</a></li>
+                            <li><a href="//baina.jd.com/" clstag="jr|keycount|jr_shouye|jdbn">京东白拿</a></li>
+                            <li><a href="//trade.jr.jd.com/asyncpublicnews/newsindex.htm" clstag="jr|keycount|jr_shouye|zhcx">纵横财讯</a></li>
+                            <li><a href="//club.jr.jd.com" clstag="jr|keycount|jr_shouye|cswd">理财问答</a></li>
+                        </ul>
+                        <i class="nav-item-mask"></i>
+                    </li>
+                    <li id="nav-zhongchou" class="nav-item">
+                        <a class="nav-item-primary" href="//z.jd.com" target="_blank" clstag="jr|keycount|jr_shouye|zc">众筹<i></i></a>
+                        <ul class="dropbox">
+                            <i class="dropbox-mask"></i>
+                            <li><a href="//z.jd.com" target="_blank" clstag="jr|keycount|jr_shouye|cpzc">产品众筹</a></li>
+                            <li><a href="//q.jd.com" target="_blank" clstag="jr|keycount|jr_shouye|qzc">轻众筹</a></li>
+                            <li><a href="//zan.jd.com/" target="_blank" clstag="jr|keycount|jr_shouye|jerh">尖er货</a></li>
+                            <li><a href="//pingce.jd.com/" target="_blank" clstag="jr|keycount|jr_shouye|0ypc">0元评测</a></li>
+                            <li><a href="//zbbs.jd.com/" target="_blank" clstag="jr|keycount|jr_shouye|zcsq">众筹社区</a></li>
+                            <li><a href="//trade.z.jd.com/funding/agreement.action" target="_blank" clstag="jr|keycount|jr_shouye|fqzc">发起众筹</a></li>
+                        </ul>
+                        <i class="nav-item-mask"></i>
+                    </li>
+                    <li id="nav-baoxian" class="nav-item">
+                        <a class="nav-item-primary" href="//bao.jd.com/" clstag="jr|keycount|jr_shouye|baoxian">保险<i></i></a>
+                        <ul class="dropbox">
+                            <i class="dropbox-mask"></i>
+                            <li><a href="//bao.jd.com/vehicle" clstag="jr|keycount|jr_shouye|chexian">车险</a></li>
+                            <li><a href="//bao.jd.com/health" clstag="jr|keycount|jr_shouye|jiankangxian">健康险</a></li>
+                            <li><a href="//bao.jd.com/accident" clstag="jr|keycount|jr_shouye|yiwaixian">意外险</a></li>
+                            <li><a href="//bao.jd.com/travel" clstag="jr|keycount|jr_shouye|lvxingxian">旅行险</a></li>
+                        </ul>
+                        <i class="nav-item-mask"></i>
+                    </li>
+                    <li id="nav-baitiao" class="nav-item">
+                        <a class="nav-item-primary" href="//baitiao.jd.com/" clstag="jr|keycount|jr_shouye|bt">白条<i></i></a>
+                        <ul class="dropbox">
+                            <i class="dropbox-mask"></i>
+                            <li><a href="//baitiao.jd.com/" clstag="jr|keycount|jr_shouye|jdbt">京东白条</a></li>
+                            <li><a href="//baitiao.jd.com/bul/home" clstag="jr|keycount|jr_shouye|jdjt">京东金条</a></li>
+                            <li><a href="//bk.jd.com/" clstag="jr|keycount|jr_shouye|btlmk">白条联名卡</a></li>
+                            <li><a href="//gb.jd.com" clstag="jr|keycount|jr_shouye|gangbeng">京东钢镚</a></li>
+                            <li><a href="//go.jd.com/activity/introduce" clstag="jr|keycount|jr_shouye|btly">旅游白条+</a></li>
+                            <li><a href="//fang.jd.com" clstag="jr|keycount|jr_shouye|btzf">安居白条+</a></li>
+                            <li><a href="//baitiao.jd.com/stu/home" clstag="jr|keycount|jr_shouye|btxy">校园白条</a></li>
+                            <li><a href="//chedai.jd.com/" clstag="jr|keycount|jr_shouye|qcjr">汽车白条</a></li>
+                            <li><a href="//jincai.jd.com/" clstag="jr|keycount|jr_shouye|jincai">京东金采</a></li>
+                            <li><a href="//nj.jd.com/" clstag="jr|keycount|jr_shouye|ncjr">农村金融</a></li>
+                        </ul>
+                        <i class="nav-item-mask"></i>
+                    </li>
+                    <li id="nav-loan" class="nav-item">
+                        <a class="nav-item-primary" href="//loan.jd.com/home/index.htm" clstag="jr|keycount|jr_shouye|jingdongdai">企业金融<i></i></a>
+                        <ul class="dropbox">
+                            <i class="dropbox-mask"></i>
+                            <li><a href="//loan.jd.com/home/index.htm" clstag="jr|keycount|jr_shouye|jddsy">企业金融</a></li>
+                            <li><a href="//dcrz.jd.com" clstag="jr|keycount|jr_shouye|dcrz">动产融资</a></li>
+                            <li><a href="//jrb2b.jd.com" clstag="jr|keycount|jr_shouye|dglc">对公理财</a></li>
+                            <li><a href="//loan.jd.com/home.html" clstag="jr|keycount|jr_shouye|jxd">京小贷</a></li>
+                            <li><a href="//loan.jd.com/scf/" clstag="jr|keycount|jr_shouye|jbb">京保贝</a></li>
+                            <li><a href="//8.jd.com" clstag="jr|keycount|jr_shouye|wsd">网商贷</a></li>
+                        </ul>
+                        <i class="nav-item-mask"></i>
+                    </li>
+                    <li id="nav-caimi" class="nav-item">
+                        <a class="nav-item-primary" href="//gupiao.jd.com/" clstag="jr|keycount|jr_shouye|gupiao">股票<i></i></a>
+                        <ul class="dropbox">
+                            <i class="dropbox-mask"></i>
+                            <li><a href="//caimi.jd.com/" target="_blank" clstag="jr|keycount|jr_shouye|caimi">财谜</a></li>
+                            <li><a href="//gupiao.jd.com/" target="_blank" clstag="jr|keycount|jr_shouye|jingxuangu">京选股</a></li>
+                        </ul>
+                        <i class="nav-item-mask"></i>
+                    </li>
+                    <li id="nav-dongjia" class="nav-item"> <a class="nav-item-primary" href="//dj.jd.com/" clstag="jr|keycount|jr_shouye|dongjia">东家<i></i></a>
+                        <ul class="dropbox">
+                            <i class="dropbox-mask"></i>
+                            <li><a href="//dj.jd.com" target="_blank" clstag="jr|keycount|jr_shouye|gqzc">私募股权</a></li>
+                            <li><a href="//zbbs.jd.com/portal.php?mod=list&catid=1" target="_blank" clstag="jr|keycount|jr_shouye|djsq">东家社区</a></li>
+                            <li><a href="//y.jd.com/forum-73-1.html" target="_blank" clstag="jr|keycount|jr_shouye|jdzc">京东众创</a></li>
+                        </ul>
+                        <i class="nav-item-mask"></i>
+                    </li>
+                </ul>
+            </div>
+            <div class="main-nav-search">
+                <div class="search-wrap">
+                    <input type="text" class="search-ipt" id="J_searchIpt" title="请输入搜索内容" autocomplete="off" />
+                    <a class="search-btn" id="searchBtn" clstag="jr|keycount|jr_search|search_button" href="javascript:;" ></a>
+                    <div class="search-result" id="J_searchRecommend"></div>
+                    <div class="search-result" id="J_searchKeyWords"></div>
+                </div>
+            </div>
+            <div class="main-nav-userCenter-wrap fr">
+                <div id="J_userCenter" class="userCenter-main">
+                    <div class="userCenter-portal">
+                        <i class="userCenter-portal-icon"></i>
+                        <a href="//trade.jr.jd.com/centre/browse.action" class="userCenter-portal-text">我的资产</a>
+                        <i class="userCenter-portal-right"></i>
+                    </div>
+                    <div id="J_userCenterBoard" class="userCenter-board"></div>
+                    <i class="userCenter-mask"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--main-nav end-->
+</div>
+<script type="text/javascript">
+(function(){if(typeof jrBase!=='undefined'){if(typeof jrBase.navId!=='undefined'){var mainNav=document.getElementById(jrBase.navId);if(mainNav){mainNav.className+=' current'}}if(typeof jrBase.navSubId!=='undefined'){var subNav=document.getElementById(jrBase.navSubId);if(subNav){subNav.className+=' current'}}}})();
+</script>
+<!--header end-->
+	</div>
+	
+	<script type="text/javascript">
+    (function(){var a=document.getElementById("nav-2013");if(!a){return};var b=document.createElement("div");b.className="w";b.style.position="relative";b.style.paddingLeft="210px";b.style.width=window.pageConfig.compatible?"1000px":"780px";b.innerHTML=a.innerHTML;a.parentNode.className="";a.style.paddingLeft="0";a.style.marginBottom="0";a.innerHTML="";a.appendChild(b)})();
+    </script>
+	
+	<div class="layoutcontainer" isfixed="" style="margin:0 auto;width:px; background: ">
+		<input id="vender_id" type="hidden" value="" />
+	
+	
+	
+      <div class="d-layout-area " >
+     <div class='d-layout' id="13400910"   >
+	<div class='d-layout-one w990 '>
+	 
+		 	</div>
+     </div>
+</div>
+
+	
+      <div class="d-layout-area   "  >
+     <div class='d-layout' id="13400853"  style="width:100%;"   >
+	<div class='d-layout-one  '>
+	 
+
+
+		<div class=' userdefined-153704' instanceId='13400854'  style="margin-bottom:0px;" module-name="UserDefine" >
+
+	
+     <div class="mc" style=";min-height:0px;">
+		 <div class="j-module" module-function="autoCenter,rid" module-param="{}">
+	<div class="userDefinedArea" style="width:auto;">
+		<style>.banner{
+    background: url(//img10.360buyimg.com/cms/jfs/t2863/331/2094200222/385080/f7489f23/5756c8aaN768f85ea.jpg) top center no-repeat;
+    height: 578px;
+}
+.cen{
+    width: 990px;
+    margin: auto;
+}
+.l_tit{
+    background:#fbfbfb url(//img14.360buyimg.com/cms/jfs/t2851/234/2121720419/18646/9f47caa0/5756c8aaN0412a9b9.jpg) top center no-repeat;
+    height: 296px;
+}
+
+.l_rule_rule{
+    background:#fbfbfb url(//img10.360buyimg.com/cms/jfs/t2716/107/2244813726/98825/d38fb7ce/575e27c3N5009cee3.png) top center no-repeat;
+    height: 227px;
+}
+.l_btn_area{
+    background:#fbfbfb url(//img13.360buyimg.com/cms/jfs/t2917/85/378173745/3010/a70a2dc9/5756c8aaNa22fe919.jpg) top center no-repeat;
+    height: 230px;
+}
+.l_btn_area .btn_center{
+    width: 173px;
+    margin: auto;
+}
+.l_step{
+    background:#fbfbfb url(//img11.360buyimg.com/cms/jfs/t2818/291/2092622282/33115/c1f9fbb0/5756c8aaN01cfde35.jpg) top center no-repeat;
+    height: 260px;
+}
+.l_step .cen{
+    width: 990px;
+    height: 100%;
+    position: relative;
+
+}
+
+.l_step .cen a{
+    position: absolute;
+    right: 10px;
+    bottom:20px;
+    font-size: 18px;
+    color: #000;
+    font-family: "微软雅黑";
+    font-weight: bold;
+}
+.posi {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9;
+    display: none;
+    opacity: 0; }
+.posi .black_layer {
+    background: #000;
+    opacity: 0.5;
+    width: 100%;
+    height: 100%; }
+.posi .posi_ab {
+        position: absolute;
+    width: 195px;
+    height: 200px;
+    left: 50%;
+    top: 50%;
+    background: #fff;
+    border-radius: 10px;
+    margin: -200px 0 0 -100px; }
+.posi .posi_ab h3 {
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 0;
+    text-align: center; }
+.posi .posi_ab .posi_close {
+    padding: 5px;
+    float: right;
+    cursor: pointer; }
+.posi .posi_ab .posi_close img {
+    display: block; }
+.posi .posi_ab .table_d {
+       width: 100%;
+    height: 344px;
+    text-align: center;
+    padding-top: 30px;
+}
+.posi .table_d img {
+    width: 150px;
+    height: 150px;
+}
+
+
+.l_window {
+  background: #fafaf8;
+  height: 287px; }
+  .l_window .cen {
+    width: 1085px;
+    margin: auto; }
+    .l_window .cen ul {
+      width: 100%;
+      margin-left: -10px; }
+    .l_window .cen li {
+      float: left;
+      background: #000;
+      position: relative;
+      border: 1px solid #bbbbbb;
+      margin-left: 9px;
+      height: 285px;
+      overflow: hidden;
+      cursor: pointer;
+      width: 180px; }
+      .l_window .cen li img {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin: -143px 0 0 -154px;
+        z-index: 1;
+        transition: 0.3s all ease; }
+      .l_window .cen li div {
+        position: relative;
+        z-index: 1;
+        padding: 56px 0; }
+        .l_window .cen li div p {
+          font-size: 38px;
+          line-height: 1.2;
+          color: #242424;
+          text-align: center;
+          transition: 0.3s all ease; }
+    .l_window .cen .active {
+      width: 304px;
+      height: 285px; }
+      .l_window .cen .active .text p {
+        color: #0717b1; }
+      .l_window .cen .active img {
+        -webkit-filter: grayscale(0); }
+
+.l_recommended {
+  background: #fafaf8 url(//img10.360buyimg.com/cms/jfs/t2872/139/900780133/56440/7b34b816/5729a50cN9db44acd.jpg) center top no-repeat;
+  height: 1454px; }
+  .l_recommended .cen {
+    width: 1018px;
+    margin: auto; }
+  .l_recommended .tit {
+    text-align: center;
+    padding: 18px 0 23px; }
+  .l_recommended .mobile {
+    position: relative;
+    width: 622px;
+    height: 342px; }
+  .l_recommended .mobile .pic {
+    position: absolute;
+    left: 0;
+    top: 0; }
+  .l_recommended .mobile .code {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    vertical-align: middle;
+    height: 342px;
+    line-height: 342px;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0; }
+  .l_recommended .mobile .code img {
+    width: 180px;
+    height: 180px;
+    vertical-align: top; }
+  .l_recommended .mobile .code .bor {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 195px;
+    height: 195px;
+    border: 1px solid #fff;
+    box-sizing: border-box;
+    padding: 7px;
+    margin: -90px 0 0 -90px; }
+  .l_recommended .code_img {
+    width: 622px;
+    height: 342px;
+    position: relative;
+    float: left; }
+    .l_recommended .code_img .text {
+      position: absolute;
+      right: 0;
+      top: 48px;
+      font-size: 28px;
+      line-height: 1.2;
+      text-align: right;
+      color: #fff;
+      font-weight: bold; }
+  .l_recommended .detail_text {
+    width: 365px;
+    height: 339px;
+    float: left;
+    box-sizing: border-box; }
+    .l_recommended .detail_text h3 {
+      margin-top: 48px;
+      font-size: 28px;
+      line-height: 1.2;
+      color: #fff;
+      font-weight: bold;
+      text-align: left;
+      padding-left: 5px; }
+    .l_recommended .detail_text .data {
+      padding-top: 12px;
+      padding-left: 8px;
+      box-sizing: border-box;
+      height: 186px; }
+      .l_recommended .detail_text .data p {
+        color: #fff;
+        line-height: 1.6;
+        font-size: 16px; }
+    .l_recommended .detail_text .btn {
+      text-align: center;
+      float: right; }
+      .l_recommended .detail_text .btn a {
+        float: left;
+        display: block;
+        margin-left: 10px;
+        width: 116px;
+        height: 30px;
+        color: #fff;
+        font-size: 16px;
+        background: #544536;
+        line-height: 30px; }
+  .l_recommended .room_list ul {
+    display: none; }
+  .l_recommended .room_list li {
+    height: 379px;
+    width: 1018px;
+    background: #b19273;
+    margin-bottom: 23px;
+    box-sizing: border-box;
+    padding: 19px 15px; }
+  .l_recommended .room_list .no_bg {
+    background: none;
+    padding: 0; }
+  .l_recommended .room_list .show {
+    display: block; }
+
+.l_map {
+  background: #fff;
+  height: 390px; }
+  .l_map .cen {
+    margin: auto;
+    width: 990px; }
+
+.l_zhuan {
+  height: 411px;
+  background: url(//img10.360buyimg.com/cms/jfs/t2614/283/1616108977/128313/2518cb31/57444a6fNda7f6258.jpg) center top no-repeat; }
+  .l_zhuan .tit {
+    height: 189px; }
+  .l_zhuan .cen {
+    margin: auto;
+    width: 990px; }
+    .l_zhuan .cen a {
+      display: block;
+      margin: 42px 32px;
+      float: left; }
+
+.l_chou {
+  height: 411px;
+  background: url(//img10.360buyimg.com/cms/jfs/t2746/201/1615353078/104447/fd9e22c/57444a6fN4e51d11e.jpg) center top no-repeat; }
+  .l_chou .tit {
+    height: 189px; }
+  .l_chou .cen {
+    margin: auto;
+    width: 990px; }
+    .l_chou .cen a {
+      display: block;
+      margin: 42px 32px;
+      float: left; }
+
+.l_bai {
+  height: 411px;
+  background: url(//img14.360buyimg.com/cms/jfs/t2854/185/1673660781/122224/5784c44f/57444a6fNe9bb478a.jpg) center top no-repeat; }
+  .l_bai .tit {
+    height: 189px; }
+  .l_bai .cen {
+    margin: auto;
+    width: 990px; }
+    .l_bai .cen a {
+      display: block;
+          margin: 65px 32px 0;
+      float: left; }
+
+.l_bao {
+  height: 295px;
+  background: url(//img12.360buyimg.com/cms/jfs/t2857/333/1645432808/136218/4786b788/57444a6fN1164c460.jpg) center top no-repeat; }
+  .l_bao .tit {
+    height: 250px; }
+  .l_bao .cen {
+    margin: auto;
+    width: 990px; }
+    .l_bao .cen a {
+      display: block;
+      margin: 42px 32px;
+      float: left; }.l_recommended .cen .l_more_1{
+   font-size: 26px;
+    color: #000;
+    line-height: 1.2;
+    padding: 0px 20px 0 0;
+    height: 35px; background: transparent;
+}
+  .l_recommended .cen .l_more_1 a{
+     display:inline;
+      float: right;
+  }
+.l_recommended .cen .l_more_1:hover{
+    
+     text-decoration: underline;
+
+}</style>
+<script>$(function () {
+            var oWin=$(".l_window .cen"),
+                active=$(".l_window .active"),
+                aW=active.width(),
+                oWinLi=$(".l_window li"),
+                LiLen=oWinLi.length-1,
+                oWW=oWin.width(),
+                otherWidth=(oWW-((LiLen+1)*12)-aW)/LiLen,
+                timer=null,
+                showDiv=$(".l_recommended .room_list ul"),
+                    topDiv=$(".l_recommended"),
+                    body=$("html,body");
+
+            oWinLi.bind("click",function () {
+                body.animate({"scrollTop":topDiv.offset().top})
+            })
+            oWinLi.hover(function(){
+                var _this=$(this),
+                    index=_this.index();
+                clearTimeout(timer);
+                timer=setTimeout(function(){
+                    fn()
+                },200);
+                function fn(){
+                    oWinLi.stop()
+                            .animate({"width":otherWidth})
+                            .removeClass("active");
+                    _this.stop()
+                            .animate({"width":aW})
+                            .addClass("active");
+                    showDiv.removeClass("show");
+                    showDiv.eq(index).addClass("show");
+
+                }
+
+
+            },function(){
+
+            });
+
+              var posi_anim=$(".posi"),
+                posiClose=$(".posi .posi_close"),
+                code_btn=$(".l_btn_area .btn_center a");
+
+
+            code_btn.bind("click",function(){
+                posi_anim.css("display","block").animate({"opacity":1});
+            });
+            posiClose.bind("click",function(){
+                posi_anim.animate({"opacity":0},function(){
+                    posi_anim.css("display","none");
+                })
+            });
+
+            var btn=$(".room_list li .code_btn"),
+                codeImg=$(".room_list li .code");
+            for(var i=0;i<btn.length;i++){
+                (function(index){
+                    btn.index=index;
+                    btn[index].onclick=function(){
+
+                        move(codeImg[index],{"opacity":100})
+                    }
+                })(i)
+
+            };
+
+        })
+function move(obj, json, options){
+    options=options||{};
+    options.type=options.type||'ease-out';
+    options.time=options.time||700;
+
+    var start={};
+    var dis={};
+    var count=Math.ceil(options.time/30);
+    var n=0;
+
+    //
+    for(var name in json)
+    {
+        if(name=='opacity')
+        {
+            start[name]=Math.round(parseFloat(getStyle(obj, name))*100);
+
+        }
+        else
+        {
+            start[name]=parseInt(getStyle(obj, name));
+
+        }
+        dis[name]=json[name]-start[name];
+    }
+
+    clearInterval(obj.timer);
+    obj.timer=setInterval(function (){
+        n++;
+
+        for(var name in json)
+        {
+            var a=n/count;
+
+            switch(options.type)
+            {
+                case 'linear':
+                    var cur=start[name]+dis[name]*a;
+                    break;
+                case 'ease-in':
+                    var cur=start[name]+dis[name]*(a*a*a);
+                    break;
+                case 'ease-out':
+                    a=1-a;
+                    var cur=start[name]+dis[name]*(1-a*a*a);
+                    break;
+            }
+
+            if(name=='opacity')
+            {
+                obj.style.filter='alpha(opacity:'+cur+')';
+                obj.style.opacity=cur/100;
+            }
+            else
+            {
+                obj.style[name]=cur+'px';
+            }
+        }
+
+        if(n==count)
+        {
+            clearInterval(obj.timer);
+
+            options.end && options.end();
+        }
+    }, 30);
+}
+function getStyle(obj, name){
+    return obj.currentStyle?obj.currentStyle[name]:getComputedStyle(obj, false)[name];
+
+}</script>
+	</div>
+</div>
+     </div>
+
+	 </div>
+
+
+
+		<div class=' userdefined-153704' instanceId='13400855'  style="margin-bottom:0px;" module-name="UserDefine" >
+
+	
+     <div class="mc" style=";min-height:0px;">
+		 <div class="j-module" module-function="autoCenter,rid" module-param="{}">
+	<div class="userDefinedArea" style="width:auto;">
+		<div class="banner"></div>
+<div class="l_tit"></div>
+<div class="l_rule_rule"></div>
+<div class="l_btn_area"> 
+ <div class="cen"> 
+  <div class="btn_center"> 
+   <a href="javascript:;" clstag="sale|keycount|12626857|1"> <img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img11.360buyimg.com/cms/jfs/t2680/313/2058566097/4957/7e9d8260/5756c8aaN9f7ae2cc.png" alt=""> </a> 
+  </div> 
+ </div>
+</div>
+<div class="l_step"> 
+ <div class="cen"> 
+  <a href="//sale.jd.com/act/HpIEMFB642lNw.html" clstag="jr|keycount|luneng_main|1" target="_blank">查看规则&gt;&gt;</a> 
+ </div>
+</div>
+<div class="posi"> 
+ <div class="black_layer"> 
+ </div> 
+ <div class="posi_ab"> 
+  <div class="posi_close"> 
+   <img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img11.360buyimg.com/cms/jfs/t2920/130/296628399/574/7b051112/5753c152N34723249.jpg" alt=""> 
+  </div> 
+  <div class="table_d"> 
+   <img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img11.360buyimg.com/cms/jfs/t2743/330/2136522607/89146/d839a710/5758fd2aNe79d5024.JPG" alt="" width="800" height="800"> 
+  </div> 
+ </div>
+</div>
+	</div>
+</div>
+     </div>
+
+	 </div>
+
+
+
+		<div class=' userdefined-153704' instanceId='13400856'  style="margin-bottom:0px;" module-name="UserDefine" >
+
+	
+     <div class="mc" style=";min-height:0px;">
+		 <div class="j-module" module-function="autoCenter,rid" module-param="{}">
+	<div class="userDefinedArea" style="width:auto;">
+		<div class="l_window"> 
+ <div class="cen"> 
+  <ul class="clearfix"> 
+   <li class="active"><img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img14.360buyimg.com/cms/jfs/t2587/248/833987944/26134/6a6289ae/5729a510Nabd01be4.jpg" alt=""> 
+    <div class="text"> 
+     <p>|</p> 
+     <p>济</p> 
+     <p>南</p> 
+     <p>|</p> 
+    </div></li> 
+   <li><img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img14.360buyimg.com/cms/jfs/t2827/199/869872673/39145/e4c029d4/5729a511N982bd9e4.jpg" alt=""> 
+    <div class="text"> 
+     <p>|</p> 
+     <p>重</p> 
+     <p>庆</p> 
+     <p>|</p> 
+    </div></li> 
+   <li><img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img10.360buyimg.com/cms/jfs/t2635/150/897544651/32918/8449b6ee/5729a510N99054e9f.jpg" alt=""> 
+    <div class="text"> 
+     <p>|</p> 
+     <p>文</p> 
+     <p>昌</p> 
+     <p>|</p> 
+    </div></li> 
+   <li><img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img10.360buyimg.com/cms/jfs/t2560/316/1331121602/31909/e0d63c27/5729a511N014ebe54.jpg" alt=""> 
+    <div class="text"> 
+     <p>|</p> 
+     <p>宜</p> 
+     <p>宾</p> 
+     <p>|</p> 
+    </div></li> 
+   <li> <img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img11.360buyimg.com/cms/jfs/t2656/237/868465729/32142/78f3a184/5729a50fNa68914c5.jpg" alt=""> 
+    <div class="text"> 
+     <p>|</p> 
+     <p>海</p> 
+     <p>口</p> 
+     <p>|</p> 
+    </div> </li> 
+  </ul> 
+ </div> 
+</div>
+	</div>
+</div>
+     </div>
+
+	 </div>
+
+
+
+		<div class=' userdefined-153704' instanceId='13400857'  style="margin-bottom:0px;" module-name="UserDefine" >
+
+	
+     <div class="mc" style=";min-height:0px;">
+		 <div class="j-module" module-function="autoCenter,rid" module-param="{}">
+	<div class="userDefinedArea" style="width:auto;">
+		<div class="l_recommended"> 
+ <div class="cen"> 
+  <div class="tit"> 
+   <img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img12.360buyimg.com/cms/jfs/t2821/272/857357434/5856/14596604/5729a50eN8636587f.jpg" alt=""> 
+  </div> 
+  <div class="room_list"> 
+   <ul class="show"> 
+    <li class="clearfix"> 
+     <div class="code_img fll mobile"> 
+      <div class="pic"> 
+       <img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img10.360buyimg.com/cms/jfs/t2785/361/1611647075/105848/33870de5/57445629N33b749f7.jpg" alt=""> 
+      </div> 
+      <div class="text"> 
+       <p>鲁能领秀城 <span>·</span></p> 
+      </div> 
+      <div class="code"> 
+       <div class="bor"> 
+        <img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img13.360buyimg.com/cms/jfs/t2719/250/2162086592/89146/d839a710/5758fcd9Nc9244af4.JPG" alt="" width="800" height="800"> 
+       </div> 
+      </div> 
+     </div> 
+     <div class="detail_text flr"> 
+      <h3>公园世家</h3> 
+      <div class="line"> 
+       <img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img12.360buyimg.com/cms/jfs/t2872/212/1610085657/1135/2e23de0a/57444a6eNeb606d21.png" alt=""> 
+      </div> 
+      <div class="data"> 
+       <p>预计开盘时间：待定</p> 
+       <p>购 房 盈：套内6300-7000元（购房诚意金）</p> 
+       <p>开盘楼号：1号楼</p> 
+       <p>产品面积：</p> 
+       <p>项目地址：济南市市中区二环南路与舜耕路交汇处</p> 
+      </div> 
+      <div class="btn clearfix"> 
+       <a class="detail_btn" href="//sale.jd.com/act/pUD2htsLEXn.html" clstag="jr|keycount|luneng_main|2" target="_blank">查看详情</a> 
+       <a class="code_btn" href="javascript:;" clstag="jr|keycount|luneng_main|3" target="_blank">扫码抢房</a> 
+      </div> 
+     </div> </li> 
+    <li class="clearfix"> 
+     <div class="code_img fll mobile"> 
+      <div class="pic"> 
+       <img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img10.360buyimg.com/cms/jfs/t3160/103/2265131/146596/8fb9cfab/579f23aaN810a2460.jpg" alt=""> 
+      </div> 
+      <div class="text"> 
+       <p>鲁能漫山香墅<span>·</span></p> 
+      </div> 
+      <div class="code"> 
+       <div class="bor"> 
+        <img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img10.360buyimg.com/cms/jfs/t2926/124/421755339/89146/d839a710/5758fcecN53e96159.JPG" alt="" width="800" height="800"> 
+       </div> 
+      </div> 
+     </div> 
+     <div class="detail_text flr"> 
+      <h3>天麓</h3> 
+      <div class="line"> 
+       <img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img12.360buyimg.com/cms/jfs/t2872/212/1610085657/1135/2e23de0a/57444a6eNeb606d21.png" alt=""> 
+      </div> 
+      <div class="data"> 
+       <p>预计开盘时间：待定</p> 
+       <p>购 房 盈：2万元（购房诚意金）</p> 
+       <p>开盘楼号：待定</p> 
+       <p>产品面积：135-290㎡</p> 
+       <p>预计售价：均价14000元/㎡左右</p> 
+       <p>项目地址：济南市市中区舜耕路南首</p> 
+      </div> 
+      <div class="btn clearfix"> 
+       <a class="detail_btn" href="//sale.jd.com/act/7QkEl5CFrhiNUge.html" clstag="jr|keycount|luneng_main|4" target="_blank">查看详情</a> 
+       <a class="code_btn" href="javascript:;" clstag="jr|keycount|luneng_main|5" target="_blank">扫码抢房</a> 
+      </div> 
+     </div> </li> 
+    <li class="no_bg"><img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img12.360buyimg.com/cms/jfs/t2878/213/2086452449/134772/e5e7c29/57576fb5N1696caa0.jpg" alt="" width="1014" height="349"></li> 
+    <li class="l_more_1"><a href="//sale.jd.com/act/26TzAfrREoi.html#jn" target="_blank" clstag="sale|keycount|11882960|22">查看楼盘&gt;&gt;</a></li> 
+   </ul> 
+   <ul> 
+    <li class="clearfix"> 
+     <div class="code_img fll mobile"> 
+      <div class="pic"> 
+       <img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img14.360buyimg.com/cms/jfs/t2680/169/1606652208/115080/455b2de1/57445921Ndaa61b37.jpg" alt=""> 
+      </div> 
+      <div class="text"> 
+       <p>鲁能 <span>·</span></p> 
+      </div> 
+      <div class="code"> 
+       <div class="bor"> 
+        <img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img13.360buyimg.com/cms/jfs/t2944/122/429499642/89146/d839a710/5758fcfaN171f8d73.JPG" alt="" width="800" height="800"> 
+       </div> 
+      </div> 
+     </div> 
+     <div class="detail_text flr"> 
+      <h3>南渝星城</h3> 
+      <div class="line"> 
+       <img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img12.360buyimg.com/cms/jfs/t2872/212/1610085657/1135/2e23de0a/57444a6eNeb606d21.png" alt=""> 
+      </div> 
+      <div class="data"> 
+       <p>预计开盘时间：待定</p> 
+       <p>购 房 盈：2万元（购房诚意金）</p> 
+       <p>开盘楼栋号:6号楼</p> 
+       <p>产品面积：建面均价5400元/㎡</p> 
+       <p>预计售价：均价5400元/平方米左右</p> 
+       <p>项目地址：重庆巴南人民广场</p> 
+      </div> 
+      <div class="btn clearfix"> 
+       <a class="detail_btn" href="//sale.jd.com/act/maN5pGyxBdPD.html" clstag="jr|keycount|luneng_main|6" target="_blank">查看详情</a> 
+       <a class="code_btn" href="javascript:;" clstag="jr|keycount|luneng_main|7" target="_blank">扫码抢房</a> 
+      </div> 
+     </div> </li> 
+    <li class="clearfix"> 
+     <div class="code_img fll mobile"> 
+      <div class="pic"> 
+       <img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img12.360buyimg.com/cms/jfs/t2872/40/1622181096/120160/cd8a3508/57445a1aNd3716910.jpg" alt=""> 
+      </div> 
+      <div class="text"> 
+       <p>鲁能星城 <span>·</span></p> 
+      </div> 
+      <div class="code"> 
+       <div class="bor"> 
+        <img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img10.360buyimg.com/cms/jfs/t2821/193/2089210368/89146/d839a710/5758fd01Ne0e7bc06.JPG" alt="" width="800" height="800"> 
+       </div> 
+      </div> 
+     </div> 
+     <div class="detail_text flr"> 
+      <h3>13街区</h3> 
+      <div class="line"> 
+       <img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img12.360buyimg.com/cms/jfs/t2872/212/1610085657/1135/2e23de0a/57444a6eNeb606d21.png" alt=""> 
+      </div> 
+      <div class="data"> 
+       <p>预计开盘时间：待定</p> 
+       <p>购 房 盈：2万元（购房诚意金）</p> 
+       <p>开盘楼栋号:6号楼、7号楼</p> 
+       <p>产品面积：建面47-72㎡</p> 
+       <p>预计售价：均价7330元/㎡</p> 
+       <p>项目地址：重庆两江·江北嘴CBD·鲁能巴蜀中学旁</p> 
+      </div> 
+      <div class="btn clearfix"> 
+       <a class="detail_btn" href="//sale.jd.com/act/4IXrcwhQHtsVJ.html" clstag="jr|keycount|luneng_main|8" target="_blank">查看详情</a> 
+       <a class="code_btn" href="javascript:;" clstag="jr|keycount|luneng_main|9" target="_blank">扫码抢房</a> 
+      </div> 
+     </div> </li> 
+    <li class="clearfix"> 
+     <div class="code_img fll mobile"> 
+      <div class="pic"> 
+       <img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img11.360buyimg.com/cms/jfs/t2827/65/1607578679/67390/658cf3b6/57445b00N93158099.jpg" alt=""> 
+      </div> 
+      <div class="text"> 
+       <p>鲁能城 <span>·</span></p> 
+      </div> 
+      <div class="code"> 
+       <div class="bor"> 
+        <img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img10.360buyimg.com/cms/jfs/t2866/288/2082106787/89146/d839a710/5758fd07Ne99bdc8f.JPG" alt="" width="800" height="800"> 
+       </div> 
+      </div> 
+     </div> 
+     <div class="detail_text flr"> 
+      <h3>中央公馆</h3> 
+      <div class="line"> 
+       <img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img12.360buyimg.com/cms/jfs/t2872/212/1610085657/1135/2e23de0a/57444a6eNeb606d21.png" alt=""> 
+      </div> 
+      <div class="data"> 
+       <p>预计开盘时间：待定</p> 
+       <p>购 房 盈：2万元（购房诚意金）</p> 
+       <p>开盘楼栋号:二期3号楼</p> 
+       <p>产品面积：103-120㎡（套内）</p> 
+       <p>预计售价：11000元/㎡起（套内）</p> 
+       <p>项目地址：重庆市渝北区中央公园北路</p> 
+      </div> 
+      <div class="btn clearfix"> 
+       <a class="detail_btn" href="//sale.jd.com/act/DPJR815aN2wcy.html" clstag="jr|keycount|luneng_main|10" target="_blank">查看详情</a> 
+       <a class="code_btn" href="javascript:;" clstag="jr|keycount|luneng_main|11" target="_blank">扫码抢房</a> 
+      </div> 
+     </div> </li> 
+    <li class="l_more_1"><a href="//sale.jd.com/act/26TzAfrREoi.html#cq" target="_blank" clstag="sale|keycount|11882960|22">查看楼盘&gt;&gt;</a></li> 
+   </ul> 
+   <ul> 
+    <li class="clearfix"> 
+     <div class="code_img fll mobile"> 
+      <div class="pic"> 
+       <img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img30.360buyimg.com/cms/jfs/t2638/348/2757758470/89489/f6ce65d7/5771dd5fNdf7bf67d.jpg" alt=""> 
+      </div> 
+      <div class="text"> 
+       <p>鲁能 <span>·</span></p> 
+      </div> 
+      <div class="code"> 
+       <div class="bor"> 
+        <img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img10.360buyimg.com/cms/jfs/t2587/203/2176020808/89146/d839a710/5758fd0cN2f973be8.jpg" alt="" width="800" height="800"> 
+       </div> 
+      </div> 
+     </div> 
+     <div class="detail_text flr"> 
+      <h3>山海天</h3> 
+      <div class="line"> 
+       <img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img12.360buyimg.com/cms/jfs/t2872/212/1610085657/1135/2e23de0a/57444a6eNeb606d21.png" alt=""> 
+      </div> 
+      <div class="data"> 
+       <p>预计开盘时间：待定</p> 
+       <p>购 房 盈：2万元（购房诚意金）</p> 
+       <p>开盘楼栋：海石滩贰号13号楼、16号楼</p> 
+       <p>产品面积：51-85㎡</p> 
+       <p>预计售价：折后均价7350元/㎡</p> 
+       <p>专属优惠：赠送1500元/㎡全屋精装</p> 
+       <p>项目地址：海南省文昌市铜鼓岭国际生态旅游区内</p> 
+      </div> 
+      <div class="btn clearfix"> 
+       <a class="detail_btn" href="//sale.jd.com/act/x6EbYgRD3HljNfWK.html" clstag="jr|keycount|luneng_main|12" target="_blank">查看详情</a> 
+       <a class="code_btn" href="javascript:;" clstag="jr|keycount|luneng_main|13" target="_blank">扫码抢房</a> 
+      </div> 
+     </div> </li> 
+    <li class="no_bg"><img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img11.360buyimg.com/cms/jfs/t2611/86/2074071569/126573/2b2578de/5756c2a3N96b5f197.jpg" alt="" width="1014" height="349"></li> 
+    <li class="no_bg"><img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img13.360buyimg.com/cms/jfs/t2752/186/2083958404/123842/930b709e/5756c2a7Na23c1efe.jpg" alt="" width="1014" height="349"></li> 
+    <li class="l_more_1"><a href="//sale.jd.com/act/26TzAfrREoi.html#wc" target="_blank" clstag="sale|keycount|11882960|22">查看楼盘&gt;&gt;</a></li> 
+   </ul> 
+   <ul> 
+    <li class="clearfix"> 
+     <div class="code_img fll mobile"> 
+      <div class="pic"> 
+       <img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img11.360buyimg.com/cms/jfs/t2695/306/1668023947/121674/7627b72e/574508b9N139c00e6.jpg" alt=""> 
+      </div> 
+      <div class="text"> 
+       <p>鲁能 <span>·</span></p> 
+      </div> 
+      <div class="code"> 
+       <div class="bor"> 
+        <img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img12.360buyimg.com/cms/jfs/t2896/293/2118705270/89146/d839a710/5758fd12N645b3b6b.JPG" alt="" width="800" height="800"> 
+       </div> 
+      </div> 
+     </div> 
+     <div class="detail_text flr"> 
+      <h3>山水原著</h3> 
+      <div class="line"> 
+       <img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img12.360buyimg.com/cms/jfs/t2872/212/1610085657/1135/2e23de0a/57444a6eNeb606d21.png" alt=""> 
+      </div> 
+      <div class="data"> 
+       <p>预计开盘时间：待定</p> 
+       <p>购 房 盈：2万元（购房诚意金）</p> 
+       <p>开盘楼栋号:31号楼</p> 
+       <p>产品面积：93-138㎡</p> 
+       <p>预计售价：折后5800元/㎡起</p> 
+       <p>项目地址：宜宾市南岸西区南丝绸路</p> 
+      </div> 
+      <div class="btn clearfix"> 
+       <a class="detail_btn" href="//sale.jd.com/act/mtc2pwI7n4kJMHi1.html" clstag="jr|keycount|luneng_main|14" target="_blank">查看详情</a> 
+       <a class="code_btn" href="javascript:;" clstag="jr|keycount|luneng_main|15" target="_blank">扫码抢房</a> 
+      </div> 
+     </div> </li> 
+    <li class="no_bg"><img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img14.360buyimg.com/cms/jfs/t2722/58/2083683306/143675/62123914/5756c233N5128d08e.jpg" alt="" width="1014" height="349"></li> 
+    <li class="no_bg"><img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img11.360buyimg.com/cms/jfs/t2749/152/2076972280/141170/23d2cba2/5756c239Ne85b6f46.jpg" alt="" width="1014" height="349"></li> 
+    <li class="l_more_1"><a href="//sale.jd.com/act/26TzAfrREoi.html#yb" target="_blank" clstag="sale|keycount|11882960|22">查看楼盘&gt;&gt;</a></li> 
+   </ul> 
+   <ul> 
+    <li class="clearfix"> 
+     <div class="code_img fll mobile"> 
+      <div class="pic"> 
+       <img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img14.360buyimg.com/cms/jfs/t2758/262/1608023295/103344/dc1df6bd/57450989N5c5d08aa.jpg" alt=""> 
+      </div> 
+      <div class="text"> 
+       <p>鲁能&nbsp;<span>·</span></p> 
+      </div> 
+      <div class="code"> 
+       <div class="bor"> 
+        <img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img13.360buyimg.com/cms/jfs/t2665/273/2124105838/89146/d839a710/5758fd19N60f18bd5.JPG" alt="" width="800" height="800"> 
+       </div> 
+      </div> 
+     </div> 
+     <div class="detail_text flr"> 
+      <h3>海蓝福源</h3> 
+      <div class="line"> 
+       <img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img12.360buyimg.com/cms/jfs/t2872/212/1610085657/1135/2e23de0a/57444a6eNeb606d21.png" alt=""> 
+      </div> 
+      <div class="data"> 
+       <p>预计开盘时间：待定</p> 
+       <p>购 房 盈：2万元（购房诚意金）</p> 
+       <p>开盘楼栋号:东二区6号楼2单元</p> 
+       <p>产品面积：87-115㎡</p> 
+       <p>预计售价：折后均价6600元/㎡左右</p> 
+       <p>项目地址：海南省澄迈县老城经济开发区鲁能大道4号</p> 
+      </div> 
+      <div class="btn clearfix"> 
+       <a class="detail_btn" href="//sale.jd.com/act/obVf3Kx4JFUaBs6.html" clstag="jr|keycount|luneng_main|16" target="_blank">查看详情</a> 
+       <a class="code_btn" href="javascript:;" clstag="jr|keycount|luneng_main|17" target="_blank">扫码抢房</a> 
+      </div> 
+     </div> </li> 
+    <li class="no_bg"><img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img12.360buyimg.com/cms/jfs/t2620/331/2115509848/114847/8dfd43bc/57577002Ndf9db509.jpg" alt="" width="1014" height="349"></li> 
+    <li class="no_bg"><img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img14.360buyimg.com/cms/jfs/t2626/314/2120301105/113744/61e52e95/5757700fN2d85cbe7.jpg" alt="" width="1014" height="349"></li> 
+    <li class="l_more_1"><a href="//sale.jd.com/act/26TzAfrREoi.html#hk" target="_blank" clstag="sale|keycount|11882960|22">查看楼盘&gt;&gt;</a></li> 
+   </ul> 
+  </div> 
+ </div> 
+</div>
+	</div>
+</div>
+     </div>
+
+	 </div>
+
+
+
+		<div class=' userdefined-153704' instanceId='13400858'  style="margin-bottom:0px;" module-name="UserDefine" >
+
+	
+     <div class="mc" style=";min-height:0px;">
+		 <div class="j-module" module-function="autoCenter,rid" module-param="{}">
+	<div class="userDefinedArea" style="width:auto;">
+		<div class="l_map"> 
+ <div class="cen"> 
+  <img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img13.360buyimg.com/cms/jfs/t2590/69/903652064/48828/9b41d0ed/5729a50eN30624de6.jpg" alt="" /> 
+ </div> 
+</div>
+	</div>
+</div>
+     </div>
+
+	 </div>
+
+		 	</div>
+     </div>
+</div>
+
+      <div class="d-layout-area   "  >
+     <div class='d-layout' id="13400859"  style="width:100%;"   >
+	<div class='d-layout-one  '>
+	 
+
+
+		<div class=' userdefined-153704' instanceId='13400860'  style="margin-bottom:0px;" module-name="UserDefine" >
+
+	
+     <div class="mc" style=";min-height:0px;">
+		 <div class="j-module" module-function="autoCenter,rid" module-param="{}">
+	<div class="userDefinedArea" style="width:auto;">
+		<div class="l_zhuan"> 
+ <div class="tit"> 
+ </div> 
+ <div class="cen clearfix"> 
+  <a href="//xiaobai.jr.jd.com/xiaobai/main.htm" clstag="jr|keycount|mqj_b_d_|11" target="_blank"><img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img13.360buyimg.com/cms/jfs/t2695/131/2353070227/42943/b94da5cd/5763ba84Ne455445d.jpg" alt="" width="427" height="138"></a> 
+  <a href="javascript:;" clstag="jr|keycount|mqj_b_d_|12" target="_blank"><img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img12.360buyimg.com/cms/jfs/t2887/80/2048057490/33220/c17c0832/5757d659N2280f783.jpg" alt="" width="427" height="138"></a> 
+ </div> 
+</div>
+	</div>
+</div>
+     </div>
+
+	 </div>
+
+		 	</div>
+     </div>
+</div>
+
+    <div class="d-layout-area  " style="background:#f7f8f8 url(//img13.360buyimg.com/cms/jfs/t2593/295/927457050/27511/5d999fd1/572c0f2dN4c93b6f9.jpg) center top no-repeat;">
+   <div class="d-layout" name="四栏布局（240x240x240x240）"  id="13400861" area="body" layout_name="insertLayout">
+     <div class="d-layout-four-left w240 ">	
+	   
+
+
+		<div class=' userdefined-153704' instanceId='13400864'  style="margin-bottom: 10px;" module-name="UserDefine" >
+
+	
+     <div class="mc" style=";min-height:0px;">
+		 <div class="j-module" module-function="autoCenter,rid" module-param="{}">
+	<div class="userDefinedArea" style="width:auto;">
+		<a href="//dq.jd.com/item.action?skuId=100190079" target="_blank" clstag="sale|keycount|11891279|1"><img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img10.360buyimg.com/cms/jfs/t2842/58/2509029261/38885/5a09127c/576743e4N814f141b.jpg" width="240" height="300" alt=""></a>
+<div class="lneng1"></div>
+<script>$(function(){
+  
+   $(".lneng1").parents(".d-layout-area").css({"height":"671","paddingTop":"20px"})
+
+})</script>
+	</div>
+</div>
+     </div>
+
+	 </div>
+
+
+
+		<div class=' userdefined-153704' instanceId='13400865'  style="margin-bottom: 10px;" module-name="UserDefine" >
+
+	
+     <div class="mc" style=";min-height:0px;">
+		 <div class="j-module" module-function="autoCenter,rid" module-param="{}">
+	<div class="userDefinedArea" style="width:auto;">
+		<a href="//dq.jd.com/item.action?skuId=100020018" target="_blank" clstag="sale|keycount|11891281|1"><img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img12.360buyimg.com/cms/jfs/t2845/119/1308269004/37741/d6e7ed94/573a7eb9Na431cded.jpg" width="240" height="300" alt=""></a>
+	</div>
+</div>
+     </div>
+
+	 </div>
+
+	        </div>
+    <div class="d-layout-four-middle-left w240 ">	
+	  
+
+
+		<div class=' userdefined-153704' instanceId='13400868'  style="margin-bottom: 10px;" module-name="UserDefine" >
+
+	
+     <div class="mc" style=";min-height:0px;">
+		 <div class="j-module" module-function="autoCenter,rid" module-param="{}">
+	<div class="userDefinedArea" style="width:auto;">
+		<a href="//dq.jd.com/item.action?skuId=100190073" target="_blank" clstag="sale|keycount|11891328|1"><img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img14.360buyimg.com/cms/jfs/t2806/67/2488329769/37376/37b3b50b/576743fdN47cbd077.jpg" width="240" height="300" alt=""></a>
+	</div>
+</div>
+     </div>
+
+	 </div>
+
+
+
+		<div class=' userdefined-153704' instanceId='13400869'  style="margin-bottom: 10px;" module-name="UserDefine" >
+
+	
+     <div class="mc" style=";min-height:0px;">
+		 <div class="j-module" module-function="autoCenter,rid" module-param="{}">
+	<div class="userDefinedArea" style="width:auto;">
+		<a href="//jdd.jr.jd.com/index.html" target="_blank" clstag="sale|keycount|11891329|1"><img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img14.360buyimg.com/cms/jfs/t2758/18/2032897628/34055/110aa317/5754d9dbNbb5aa6c8.jpg" width="240" height="300" alt=""></a>
+	</div>
+</div>
+     </div>
+
+	 </div>
+
+	        </div>
+    <div class="d-layout-four-middle-right w240 ">	
+	  
+
+
+		<div class=' userdefined-153704' instanceId='13400862'  style="margin-bottom: 10px;" module-name="UserDefine" >
+
+	
+     <div class="mc" style=";min-height:0px;">
+		 <div class="j-module" module-function="autoCenter,rid" module-param="{}">
+	<div class="userDefinedArea" style="width:auto;">
+		<a href="//dq.jd.com/item.action?skuId=100190071" target="_blank" clstag="sale|keycount|11891330|1"><img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img11.360buyimg.com/cms/jfs/t2728/62/2465887520/37060/e1ee1bd2/57674438Nbc2af38b.jpg" width="240" height="300" alt=""></a>
+	</div>
+</div>
+     </div>
+
+	 </div>
+
+
+
+		<div class=' userdefined-153704' instanceId='13400863'  style="margin-bottom: 10px;" module-name="UserDefine" >
+
+	
+     <div class="mc" style=";min-height:0px;">
+		 <div class="j-module" module-function="autoCenter,rid" module-param="{}">
+	<div class="userDefinedArea" style="width:auto;">
+		<a href="//bill.jr.jd.com/buy/list.htm" target="_blank" clstag="sale|keycount|11891331|1"><img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img10.360buyimg.com/cms/jfs/t2815/264/2124066502/36997/dd5e8eb1/5757e912N6c03c259.jpg" width="240" height="300" alt=""></a>
+	</div>
+</div>
+     </div>
+
+	 </div>
+
+	        </div>
+     <div class="d-layout-four-right w240 ">	
+	  
+
+
+		<div class=' userdefined-153704' instanceId='13400866'  style="margin-bottom: 10px;" module-name="UserDefine" >
+
+	
+     <div class="mc" style=";min-height:0px;">
+		 <div class="j-module" module-function="autoCenter,rid" module-param="{}">
+	<div class="userDefinedArea" style="width:auto;">
+		<a href="//atm.jr.jd.com/index.html" target="_blank" clstag="sale|keycount|11891332|1"><img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img10.360buyimg.com/cms/jfs/t2773/265/854730294/97743/13e84f7b/5729cd38Ne9a52eab.png" width="240" height="300" alt="" /></a>
+	</div>
+</div>
+     </div>
+
+	 </div>
+
+
+
+		<div class=' userdefined-153704' instanceId='13400867'  style="margin-bottom: 10px;" module-name="UserDefine" >
+
+	
+     <div class="mc" style=";min-height:0px;">
+		 <div class="j-module" module-function="autoCenter,rid" module-param="{}">
+	<div class="userDefinedArea" style="width:auto;">
+		<style>.mobile {
+  position: relative;
+  width: 240px;
+  height:300px;
+}
+.mobile .pic {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.mobile .code {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  vertical-align: middle;
+  height: 300px;
+  line-height: 300px;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+}
+.mobile .code img {
+  vertical-align: middle;
+  width: 150px;
+  height: 150px;
+}</style>
+<script>$(function(){
+            $(".mobile").hover(function(){
+                $(this).find(".code").stop().animate({"opacity":1});
+            },function(){
+                $(this).find(".code").stop().animate({"opacity":0});
+            });
+           
+        })</script>
+<div class="mobile"> 
+ <div class="pic"> 
+  <img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img12.360buyimg.com/cms/jfs/t2725/60/2116691640/38001/fd0993dc/5757f09eN4e09f654.jpg" alt=""> 
+ </div> 
+ <div class="code" style="opacity: 0;"> 
+  <img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img12.360buyimg.com/cms/jfs/t2245/359/2957525406/3240/ec49433a/572c09c9Ndf2af9d3.png" alt="" width="300" height="300"> 
+ </div> 
+</div>
+	</div>
+</div>
+     </div>
+
+	 </div>
+
+	        </div>
+   </div>
+</div>
+
+      <div class="d-layout-area   "  >
+     <div class='d-layout' id="13400870"  style="width:100%;"   >
+	<div class='d-layout-one  '>
+	 
+
+
+		<div class=' userdefined-153704' instanceId='13400871'  style="margin-bottom:0px;" module-name="UserDefine" >
+
+	
+     <div class="mc" style=";min-height:0px;">
+		 <div class="j-module" module-function="autoCenter,rid" module-param="{}">
+	<div class="userDefinedArea" style="width:auto;">
+		<div class="l_chou"> 
+ <div class="tit"> 
+ </div> 
+ <div class="cen clearfix"> 
+  <a href="//sale.jd.com/act/y8TzBjKOpLUw2VJM.html" clstag="jr|keycount|luneng_main|20" target="_blank"><img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img10.360buyimg.com/cms/jfs/t2941/22/346906150/49384/44f263f6/57553bc9N32967229.png" alt="" width="426" height="138"></a> 
+  <a href="//sale.jd.com/act/rKhJit1fWVDR.html" clstag="jr|keycount|luneng_main|21" target="_blank"><img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img20.360buyimg.com/cms/jfs/t2764/340/1647277385/39902/ba9f512b/57444a6eN14031585.png" alt=""></a> 
+ </div> 
+</div>
+	</div>
+</div>
+     </div>
+
+	 </div>
+
+		 	</div>
+     </div>
+</div>
+
+    <div class="d-layout-area  " style="background:#f7f8f8 url(//img11.360buyimg.com/cms/jfs/t2647/133/1583805693/18029/7fb83df7/57444de6N1022388e.jpg) center top no-repeat;">
+   <div class="d-layout" name="四栏布局（240x240x240x240）"  id="13400872" area="body" layout_name="insertLayout">
+     <div class="d-layout-four-left w240 ">	
+	   
+
+
+		<div class=' userdefined-153704' instanceId='13400875'  style="margin-bottom: 10px;" module-name="UserDefine" >
+
+	
+     <div class="mc" style=";min-height:0px;">
+		 <div class="j-module" module-function="autoCenter,rid" module-param="{}">
+	<div class="userDefinedArea" style="width:auto;">
+		<a href="//z.jd.com/project/details/59297.html" target="_blank" clstag="sale|keycount|11891124|1"><img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img12.360buyimg.com/cms/jfs/t2584/282/2781960640/21159/6b3b4664/57732352N709dbac6.jpg" width="240" height="300" alt=""></a>
+<div class="lneng2"></div>
+<script>$(function(){
+  
+   $(".lneng2").parents(".d-layout-area").css({"height":"693px","paddingTop":"40px"})
+
+})</script>
+	</div>
+</div>
+     </div>
+
+	 </div>
+
+
+
+		<div class=' userdefined-153704' instanceId='13400876'  style="margin-bottom: 10px;" module-name="UserDefine" >
+
+	
+     <div class="mc" style=";min-height:0px;">
+		 <div class="j-module" module-function="autoCenter,rid" module-param="{}">
+	<div class="userDefinedArea" style="width:auto;">
+		<a href="//z.jd.com/project/details/56745.html" target="_blank" clstag="sale|keycount|11891129|1"><img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img11.360buyimg.com/cms/jfs/t2659/51/2773579358/17554/786d118e/577323b8N4aa8421c.jpg" width="240" height="300" alt=""></a>
+	</div>
+</div>
+     </div>
+
+	 </div>
+
+	        </div>
+    <div class="d-layout-four-middle-left w240 ">	
+	  
+
+
+		<div class=' userdefined-153704' instanceId='13400879'  style="margin-bottom: 10px;" module-name="UserDefine" >
+
+	
+     <div class="mc" style=";min-height:0px;">
+		 <div class="j-module" module-function="autoCenter,rid" module-param="{}">
+	<div class="userDefinedArea" style="width:auto;">
+		<a href="//z.jd.com/project/details/61019.html" target="_blank" clstag="sale|keycount|11891399|1"><img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img13.360buyimg.com/cms/jfs/t2674/2/2779012639/20966/7957e833/5773237aNcf6912dd.jpg" width="240" height="300" alt=""></a>
+	</div>
+</div>
+     </div>
+
+	 </div>
+
+
+
+		<div class=' userdefined-153704' instanceId='13400880'  style="margin-bottom: 10px;" module-name="UserDefine" >
+
+	
+     <div class="mc" style=";min-height:0px;">
+		 <div class="j-module" module-function="autoCenter,rid" module-param="{}">
+	<div class="userDefinedArea" style="width:auto;">
+		<a href="//z.jd.com/project/details/60496.html" target="_blank" clstag="sale|keycount|11891404|1"><img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img14.360buyimg.com/cms/jfs/t2635/126/2805310893/21654/464363ea/577323d8Ndddbc3ef.jpg" width="240" height="300" alt=""></a>
+	</div>
+</div>
+     </div>
+
+	 </div>
+
+	        </div>
+    <div class="d-layout-four-middle-right w240 ">	
+	  
+
+
+		<div class=' userdefined-153704' instanceId='13400873'  style="margin-bottom: 10px;" module-name="UserDefine" >
+
+	
+     <div class="mc" style=";min-height:0px;">
+		 <div class="j-module" module-function="autoCenter,rid" module-param="{}">
+	<div class="userDefinedArea" style="width:auto;">
+		<a href="//z.jd.com/project/details/58143.html" target="_blank" clstag="sale|keycount|11891401|1"><img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img12.360buyimg.com/cms/jfs/t2893/91/2117150357/29165/95acf97b/575772aeN32a0cb2c.jpg" width="240" height="300" alt=""></a>
+	</div>
+</div>
+     </div>
+
+	 </div>
+
+
+
+		<div class=' userdefined-153704' instanceId='13400874'  style="margin-bottom: 10px;" module-name="UserDefine" >
+
+	
+     <div class="mc" style=";min-height:0px;">
+		 <div class="j-module" module-function="autoCenter,rid" module-param="{}">
+	<div class="userDefinedArea" style="width:auto;">
+		<a href="//z.jd.com/project/details/59733.html" target="_blank" clstag="sale|keycount|11891405|1"><img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img13.360buyimg.com/cms/jfs/t2890/251/2794660579/22431/8e13bd7c/577323faN9b6314aa.jpg" width="240" height="300" alt=""></a>
+	</div>
+</div>
+     </div>
+
+	 </div>
+
+	        </div>
+     <div class="d-layout-four-right w240 ">	
+	  
+
+
+		<div class=' userdefined-153704' instanceId='13400877'  style="margin-bottom: 10px;" module-name="UserDefine" >
+
+	
+     <div class="mc" style=";min-height:0px;">
+		 <div class="j-module" module-function="autoCenter,rid" module-param="{}">
+	<div class="userDefinedArea" style="width:auto;">
+		<a href="//z.jd.com/project/details/58164.html" target="_blank" clstag="sale|keycount|11891402|1"><img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img13.360buyimg.com/cms/jfs/t2872/53/2788219886/18672/f8a6b980/5773239bN911547f6.jpg" width="240" height="300" alt=""></a>
+	</div>
+</div>
+     </div>
+
+	 </div>
+
+
+
+		<div class=' userdefined-153704' instanceId='13400878'  style="margin-bottom: 10px;" module-name="UserDefine" >
+
+	
+     <div class="mc" style=";min-height:0px;">
+		 <div class="j-module" module-function="autoCenter,rid" module-param="{}">
+	<div class="userDefinedArea" style="width:auto;">
+		<a href="//z.jd.com/project/details/57234.html" target="_blank" clstag="sale|keycount|11891406|1"><img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img11.360buyimg.com/cms/jfs/t2809/152/2110202179/27036/36a61ea2/57577305Nb8556d35.jpg" width="240" height="300" alt=""></a>
+	</div>
+</div>
+     </div>
+
+	 </div>
+
+	        </div>
+   </div>
+</div>
+
+      <div class="d-layout-area   "  >
+     <div class='d-layout' id="13400881"  style="width:100%;"   >
+	<div class='d-layout-one  '>
+	 
+
+
+		<div class=' userdefined-153704' instanceId='13400882'  style="margin-bottom:0px;" module-name="UserDefine" >
+
+	
+     <div class="mc" style=";min-height:0px;">
+		 <div class="j-module" module-function="autoCenter,rid" module-param="{}">
+	<div class="userDefinedArea" style="width:auto;">
+		<div class="l_bai"> 
+ <div class="tit"> 
+ </div> 
+ <div class="cen clearfix"> 
+  <a href="//baitiao.jd.com/" clstag="jr|keycount|mqj_b_d_|13" target="_blank"><img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img13.360buyimg.com/cms/jfs/t2812/259/890014902/13633/a8a154c1/5729bd4eN30c660d8.jpg" alt="" width="427" height="138"></a> 
+  <a href="//fang.jd.com/dydApply/enterApply?v=1464142899415&amp;businessType=4&amp;token=e39363504e8f39156d904f4b312b00b91a3ef7017bd2bf101358408e91e5201f" clstag="jr|keycount|mqj_b_d_|14" target="_blank"><img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img14.360buyimg.com/cms/jfs/t2731/289/882117055/12612/70ac75ee/5729bd5fNeef5a4e8.jpg" alt="" width="427" height="138"></a> 
+ </div> 
+</div>
+	</div>
+</div>
+     </div>
+
+	 </div>
+
+		 	</div>
+     </div>
+</div>
+
+    <div class="d-layout-area  " style="background:#f7f8f8 url(//img11.360buyimg.com/cms/jfs/t2878/306/944740520/122608/c03bf132/572c392cN3263585c.jpg) center top no-repeat;">
+   <div class="d-layout" name="四栏布局（240x240x240x240）"  id="13400883" area="body" layout_name="insertLayout">
+     <div class="d-layout-four-left w240 ">	
+	   
+
+
+		<div class=' userdefined-153704' instanceId='13400888'  style="margin-bottom: 10px;" module-name="UserDefine" >
+
+	
+     <div class="mc" style=";min-height:0px;">
+		 <div class="j-module" module-function="autoCenter,rid" module-param="{}">
+	<div class="userDefinedArea" style="width:auto;">
+		<a href="//mall.jd.com/index-60096.html" target="_blank" clstag="sale|keycount|11891522|1"><img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img11.360buyimg.com/cms/jfs/t2653/350/908606113/30547/8301ffd6/572aa0b2N0911b175.jpg" width="240" height="300" alt=""></a>
+<div class="lneng3"></div>
+<script>$(function(){
+  
+   $(".lneng3").parents(".d-layout-area").css({"height":"1281px","paddingTop":"40px"})
+
+})</script>
+	</div>
+</div>
+     </div>
+
+	 </div>
+
+
+
+		<div class=' userdefined-153704' instanceId='13400889'  style="margin-bottom: 10px;" module-name="UserDefine" >
+
+	
+     <div class="mc" style=";min-height:0px;">
+		 <div class="j-module" module-function="autoCenter,rid" module-param="{}">
+	<div class="userDefinedArea" style="width:auto;">
+		<a href="//mall.jd.com/index-1000001421.html" target="_blank" clstag="sale|keycount|11891591|1"><img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img12.360buyimg.com/cms/jfs/t2632/201/905619746/17920/bdda3bac/572aa0bbN5f3b72b4.jpg" width="240" height="300" alt="" /></a>
+	</div>
+</div>
+     </div>
+
+	 </div>
+
+
+
+		<div class=' userdefined-153704' instanceId='13400890'  style="margin-bottom: 10px;" module-name="UserDefine" >
+
+	
+     <div class="mc" style=";min-height:0px;">
+		 <div class="j-module" module-function="autoCenter,rid" module-param="{}">
+	<div class="userDefinedArea" style="width:auto;">
+		<a href="//mall.jd.com/index-125328.html" target="_blank" clstag="sale|keycount|11891597|1"><img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img13.360buyimg.com/cms/jfs/t2197/199/3044776694/27629/bbae61c/572bfd84N7a93f88e.jpg" width="240" height="300" alt="" /></a>
+	</div>
+</div>
+     </div>
+
+	 </div>
+
+
+
+		<div class=' userdefined-153704' instanceId='13400891'  style="margin-bottom: 10px;" module-name="UserDefine" >
+
+	
+     <div class="mc" style=";min-height:0px;">
+		 <div class="j-module" module-function="autoCenter,rid" module-param="{}">
+	<div class="userDefinedArea" style="width:auto;">
+		<a href="//mall.jd.com/index-185554.html" target="_blank" clstag="sale|keycount|11943431|1"><img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img10.360buyimg.com/cms/jfs/t1657/212/1436600005/32034/8e874c27/572c40fbN03e4f713.jpg" width="240" height="300" alt="" /></a>
+	</div>
+</div>
+     </div>
+
+	 </div>
+
+	        </div>
+    <div class="d-layout-four-middle-left w240 ">	
+	  
+
+
+		<div class=' jByStages-178550' instanceId='13400896'  style="margin-bottom:0px;" module-name="GoodsRec" >
+
+	
+     <div class="mc" style=";min-height:0px;">
+		 <div class="j-module jd-list-cont" module-function="tabClass,blankNote" module-param="{defaultClass:'hover', phase:12, priceNode:'.phasePrice'}">
+    <ul class="jd-list-small fnClear">
+                <li  clstag="sale|keycount|13400896|1"  class="item" skuid="1672069326">
+            <a href="//item.jd.com/1672069326.html" target="_blank" class="jd-pic-link">
+                <img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img13.360buyimg.com/n6/jfs/t2683/31/3538404904/390283/eee8db28/57918e94Ncc43f40c.jpg" alt="" class="jd-pic" width="160px" height="160px" >
+            </a>
+            <p class="jd-goods-name">
+                <a href="//item.jd.com/1672069326.html" target="_blank" class="jd-name-link" title="顾家家居 布艺沙发 简约现代可拆洗皮布组合沙发BY005【门店同款】 单人位+三人位+左躺位 【七夕团购节】8.2-8.10 手机直降底价，满2万可获送价值2999元1号垫">顾家家居 布艺沙发 简约现代可拆洗皮布组合沙发BY005【门店同款】 单人位+三人位+左躺位</a>
+            </p>
+            <p class="jd-stage-price">
+                12期分期价：<i class="dollar">¥ </i><span class="highlight phasePrice"></span> 起
+            </p>
+            <a href="//item.jd.com/1672069326.html" target="_blank" class="jd-add-cart">
+                打白条购买 <i class="jd-icons jd-icons-right"></i>
+            </a>
+        </li>
+            </ul>
+</div>
+     </div>
+
+	 </div>
+
+
+
+		<div class=' jByStages-178550' instanceId='13400897'  style="margin-bottom:0px;" module-name="GoodsRec" >
+
+	
+     <div class="mc" style=";min-height:0px;">
+		 <div class="j-module jd-list-cont" module-function="tabClass,blankNote" module-param="{defaultClass:'hover', phase:12, priceNode:'.phasePrice'}">
+    <ul class="jd-list-small fnClear">
+                <li  clstag="sale|keycount|13400897|1"  class="item" skuid="1293744">
+            <a href="//item.jd.com/1293744.html" target="_blank" class="jd-pic-link">
+                <img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img12.360buyimg.com/n6/jfs/t1912/359/2621085726/103758/2d3e9945/570f4398N87d9d4e2.jpg" alt="" class="jd-pic" width="160px" height="160px" >
+            </a>
+            <p class="jd-goods-name">
+                <a href="//item.jd.com/1293744.html" target="_blank" class="jd-name-link" title="西门子(SIEMENS) BCD-610W(KA92NV02TI) 610升 变频风冷无霜 对开门冰箱 LED触摸显示屏 速冷速冻（白色） 独立双循环，全方位风冷，创造无霜时代！速冷速冻，强力保鲜！高雅白色，大容量，创造品质生活！">西门子(SIEMENS) BCD-610W(KA92NV02TI) 610升 变频风冷无霜 对开门冰箱 LED触摸显示屏 速冷速冻（白色）</a>
+            </p>
+            <p class="jd-stage-price">
+                12期分期价：<i class="dollar">¥ </i><span class="highlight phasePrice"></span> 起
+            </p>
+            <a href="//item.jd.com/1293744.html" target="_blank" class="jd-add-cart">
+                打白条购买 <i class="jd-icons jd-icons-right"></i>
+            </a>
+        </li>
+            </ul>
+</div>
+     </div>
+
+	 </div>
+
+
+
+		<div class=' userdefined-153704' instanceId='13400898'  style="margin-bottom: 10px;" module-name="UserDefine" >
+
+	
+     <div class="mc" style=";min-height:0px;">
+		 <div class="j-module" module-function="autoCenter,rid" module-param="{}">
+	<div class="userDefinedArea" style="width:auto;">
+		<a href="//mall.jd.com/index-185789.html" target="_blank" clstag="sale|keycount|11895642|1"><img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img11.360buyimg.com/cms/jfs/t1849/233/2952431415/62760/c28e12d/572bfdcbNe0224ca8.jpg" width="240" height="300" alt="" /></a>
+	</div>
+</div>
+     </div>
+
+	 </div>
+
+
+
+		<div class=' userdefined-153704' instanceId='13400899'  style="margin-bottom: 10px;" module-name="UserDefine" >
+
+	
+     <div class="mc" style=";min-height:0px;">
+		 <div class="j-module" module-function="autoCenter,rid" module-param="{}">
+	<div class="userDefinedArea" style="width:auto;">
+		<a href="//mall.jd.com/index-204496.html" target="_blank" clstag="sale|keycount|11928893|1"><img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img12.360buyimg.com/cms/jfs/t2503/77/2933081289/33735/9ce11ad9/572bff27N01101946.jpg" width="240" height="300" alt="" /></a>
+	</div>
+</div>
+     </div>
+
+	 </div>
+
+	        </div>
+    <div class="d-layout-four-middle-right w240 ">	
+	  
+
+
+		<div class=' jByStages-178550' instanceId='13400884'  style="margin-bottom:0px;" module-name="GoodsRec" >
+
+	
+     <div class="mc" style=";min-height:0px;">
+		 <div class="j-module jd-list-cont" module-function="tabClass,blankNote" module-param="{defaultClass:'hover', phase:12, priceNode:'.phasePrice'}">
+    <ul class="jd-list-small fnClear">
+                <li  clstag="sale|keycount|13400884|1"  class="item" skuid="1485200910">
+            <a href="//item.jd.com/1485200910.html" target="_blank" class="jd-pic-link">
+                <img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img10.360buyimg.com/n6/jfs/t3037/243/29895359/305437/dee002b7/57906408Nd50daa18.jpg" alt="" class="jd-pic" width="160px" height="160px" >
+            </a>
+            <p class="jd-goods-name">
+                <a href="//item.jd.com/1485200910.html" target="_blank" class="jd-name-link" title="顾家家居  皮布沙发 布现代可拆洗布艺沙发客厅家具B001-1 图片色 三人位+右躺位 【七夕团购节】8.2-8.10 手机直降底价，满2万可获送价值2999元1号垫">顾家家居  皮布沙发 布现代可拆洗布艺沙发客厅家具B001-1 图片色 三人位+右躺位</a>
+            </p>
+            <p class="jd-stage-price">
+                12期分期价：<i class="dollar">¥ </i><span class="highlight phasePrice"></span> 起
+            </p>
+            <a href="//item.jd.com/1485200910.html" target="_blank" class="jd-add-cart">
+                打白条购买 <i class="jd-icons jd-icons-right"></i>
+            </a>
+        </li>
+            </ul>
+</div>
+     </div>
+
+	 </div>
+
+
+
+		<div class=' jByStages-178550' instanceId='13400885'  style="margin-bottom:0px;" module-name="GoodsRec" >
+
+	
+     <div class="mc" style=";min-height:0px;">
+		 <div class="j-module jd-list-cont" module-function="tabClass,blankNote" module-param="{defaultClass:'hover', phase:12, priceNode:'.phasePrice'}">
+    <ul class="jd-list-small fnClear">
+                <li  clstag="sale|keycount|13400885|1"  class="item" skuid="1887637">
+            <a href="//item.jd.com/1887637.html" target="_blank" class="jd-pic-link">
+                <img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img13.360buyimg.com/n6/jfs/t2239/336/2657113832/198137/fd2d8fd8/570f7ea4N37c62e39.jpg" alt="" class="jd-pic" width="160px" height="160px" >
+            </a>
+            <p class="jd-goods-name">
+                <a href="//item.jd.com/1887637.html" target="_blank" class="jd-name-link" title="西门子(SIEMENS) XQG80-WD12G4C01W 8公斤 洗烘一体变频 滚筒洗衣机 LED显示屏 静音 热风除菌（白色） 【爆品开抢！】西门子爆款8公斤洗烘一体洗衣机，大容量，低噪音，释放你的双手！抢白条更优惠！德系品质，值得信赖！详情猛戳！">西门子(SIEMENS) XQG80-WD12G4C01W 8公斤 洗烘一体变频 滚筒洗衣机 LED显示屏 静音 热风除菌（白色）</a>
+            </p>
+            <p class="jd-stage-price">
+                12期分期价：<i class="dollar">¥ </i><span class="highlight phasePrice"></span> 起
+            </p>
+            <a href="//item.jd.com/1887637.html" target="_blank" class="jd-add-cart">
+                打白条购买 <i class="jd-icons jd-icons-right"></i>
+            </a>
+        </li>
+            </ul>
+</div>
+     </div>
+
+	 </div>
+
+
+
+		<div class=' userdefined-153704' instanceId='13400886'  style="margin-bottom: 10px;" module-name="UserDefine" >
+
+	
+     <div class="mc" style=";min-height:0px;">
+		 <div class="j-module" module-function="autoCenter,rid" module-param="{}">
+	<div class="userDefinedArea" style="width:auto;">
+		<a href="//mall.jd.com/index-135247.html" target="_blank" clstag="sale|keycount|11891511|1"><img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img11.360buyimg.com/cms/jfs/t1393/169/1452016245/100905/94595ad1/572c7190N3ad0264c.jpg" width="240" height="300" alt="" /></a>
+	</div>
+</div>
+     </div>
+
+	 </div>
+
+
+
+		<div class=' userdefined-153704' instanceId='13400887'  style="margin-bottom: 10px;" module-name="UserDefine" >
+
+	
+     <div class="mc" style=";min-height:0px;">
+		 <div class="j-module" module-function="autoCenter,rid" module-param="{}">
+	<div class="userDefinedArea" style="width:auto;">
+		<a href="//item.jd.com/10088776762.html" target="_blank" clstag="sale|keycount|11943435|1"><img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img11.360buyimg.com/cms/jfs/t799/218/1486302993/19186/5b1daa36/57302d9dN73e5c9d9.jpg" width="240" height="300" alt="" /></a>
+	</div>
+</div>
+     </div>
+
+	 </div>
+
+	        </div>
+     <div class="d-layout-four-right w240 ">	
+	  
+
+
+		<div class=' jByStages-178550' instanceId='13400892'  style="margin-bottom:0px;" module-name="GoodsRec" >
+
+	
+     <div class="mc" style=";min-height:0px;">
+		 <div class="j-module jd-list-cont" module-function="tabClass,blankNote" module-param="{defaultClass:'hover', phase:12, priceNode:'.phasePrice'}">
+    <ul class="jd-list-small fnClear">
+                <li  clstag="sale|keycount|13400892|1"  class="item" skuid="10062787103">
+            <a href="//item.jd.com/10062787103.html" target="_blank" class="jd-pic-link">
+                <img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img12.360buyimg.com/n6/jfs/t2923/185/1926199649/439660/8a702048/579587c0Na7ca944c.jpg" alt="" class="jd-pic" width="160px" height="160px" >
+            </a>
+            <p class="jd-goods-name">
+                <a href="//item.jd.com/10062787103.html" target="_blank" class="jd-name-link" title="顾家家居 皮沙发 米檬现代北欧时尚青春布靠垫小户型皮艺沙发 家具MK.071 三人位+ 躺位 【七夕团购节】8.2-8.10 手机直降底价，满2万可获送价值2999元1号垫">顾家家居 皮沙发 米檬现代北欧时尚青春布靠垫小户型皮艺沙发 家具MK.071 三人位+ 躺位</a>
+            </p>
+            <p class="jd-stage-price">
+                12期分期价：<i class="dollar">¥ </i><span class="highlight phasePrice"></span> 起
+            </p>
+            <a href="//item.jd.com/10062787103.html" target="_blank" class="jd-add-cart">
+                打白条购买 <i class="jd-icons jd-icons-right"></i>
+            </a>
+        </li>
+            </ul>
+</div>
+     </div>
+
+	 </div>
+
+
+
+		<div class=' jByStages-178550' instanceId='13400893'  style="margin-bottom:0px;" module-name="GoodsRec" >
+
+	
+     <div class="mc" style=";min-height:0px;">
+		 <div class="j-module jd-list-cont" module-function="tabClass,blankNote" module-param="{defaultClass:'hover', phase:12, priceNode:'.phasePrice'}">
+    <ul class="jd-list-small fnClear">
+                <li  clstag="sale|keycount|13400893|1"  class="item" skuid="1175389">
+            <a href="//item.jd.com/1175389.html" target="_blank" class="jd-pic-link">
+                <img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img11.360buyimg.com/n6/jfs/t2665/166/1162232518/152059/10f09929/573584d8N317cbc39.jpg" alt="" class="jd-pic" width="160px" height="160px" >
+            </a>
+            <p class="jd-goods-name">
+                <a href="//item.jd.com/1175389.html" target="_blank" class="jd-name-link" title="西门子(SIEMENS) BCD-401W(KM40FA60TI) 401升 变频混冷无霜 多门冰箱 零度保鲜 旋转制冰盒（银色） 【冰洗高端好货集结】领券下单更优惠，部分型号不参加领券，实用多门，无霜设计，大冷冻力！智能控温，人性化功能设计，节能环保！详情猛戳！">西门子(SIEMENS) BCD-401W(KM40FA60TI) 401升 变频混冷无霜 多门冰箱 零度保鲜 旋转制冰盒（银色）</a>
+            </p>
+            <p class="jd-stage-price">
+                12期分期价：<i class="dollar">¥ </i><span class="highlight phasePrice"></span> 起
+            </p>
+            <a href="//item.jd.com/1175389.html" target="_blank" class="jd-add-cart">
+                打白条购买 <i class="jd-icons jd-icons-right"></i>
+            </a>
+        </li>
+            </ul>
+</div>
+     </div>
+
+	 </div>
+
+
+
+		<div class=' userdefined-153704' instanceId='13400894'  style="margin-bottom: 10px;" module-name="UserDefine" >
+
+	
+     <div class="mc" style=";min-height:0px;">
+		 <div class="j-module" module-function="autoCenter,rid" module-param="{}">
+	<div class="userDefinedArea" style="width:auto;">
+		<a href="//mall.jd.com/index-161099.html" target="_blank" clstag="sale|keycount|11928840|1"><img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img13.360buyimg.com/cms/jfs/t2683/129/933104536/83749/84fd5c78/572c000dN0c87d5c2.jpg" width="240" height="300" alt="" /></a>
+	</div>
+</div>
+     </div>
+
+	 </div>
+
+
+
+		<div class=' userdefined-153704' instanceId='13400895'  style="margin-bottom: 10px;" module-name="UserDefine" >
+
+	
+     <div class="mc" style=";min-height:0px;">
+		 <div class="j-module" module-function="autoCenter,rid" module-param="{}">
+	<div class="userDefinedArea" style="width:auto;">
+		<a href="//item.jd.com/10320991468.html" target="_blank" clstag="sale|keycount|11943442|1"><img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img10.360buyimg.com/cms/jfs/t1210/143/1502024248/37570/f664ead7/57302da6N83fedca1.jpg" width="240" height="300" alt="" /></a>
+	</div>
+</div>
+     </div>
+
+	 </div>
+
+	        </div>
+   </div>
+</div>
+
+      <div class="d-layout-area " style="background:#f7f8f8">
+     <div class='d-layout' id="13400907"   >
+	<div class='d-layout-one w990 '>
+	 
+
+
+		<div class=' userdefined-153704' instanceId='8039849'  style="margin-bottom:0px;" module-name="UserDefine" >
+
+	
+     <div class="mc" style="background:#ccb19c url() top;;min-height:0px;">
+		 <div class="j-module" module-function="autoCenter,rid" module-param="{}">
+	<div class="userDefinedArea" style="width:990px;">
+		<table id="__01" width="990" border="0" cellpadding="0" cellspacing="0"> 
+ <tbody> 
+  <tr> 
+   <td><a href="//zan.jd.com/" target="_blank" clstag="sale|keycount|dibuhulian|jianerhuo"><img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img12.360buyimg.com/cms/jfs/t2401/285/2290805477/30828/94269128/56cabbecNa360b742.jpg" alt="" height="200" width="330"></a></td> 
+   <td><a href="//biggerplay.jd.com/" target="_blank" clstag="sale|keycount|dibuhulian|wanbigger"><img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img13.360buyimg.com/cms/jfs/t2323/208/1498128569/19776/251dacfb/56653c9fN80c79ac3.jpg" alt="" height="200" width="330"></a></td> 
+   <td><a href="//sale.jd.com/act/rKhJit1fWVDR.html" target="_blank" clstag="sale|keycount|dibuhulian|dapaimianxigou"><img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img10.360buyimg.com/cms/jfs/t2947/267/1051441209/32630/7efa8ad4/5773643bNac6324b0.jpg" alt="" height="200" width="330"></a></td> 
+  </tr> 
+ </tbody>
+</table>
+<style type="text/css">.kuanghulian{ width:990px; height:428px;background:#FFF;}
+.jinrongtop{ margin:10px 0 ;}
+.kuanghulian ul{width:990px; height:171px; margin-left:5px;  }
+.kuanghulian li{float:left; width:247px; height:171px; overflow:hidden; display:block;position:relative;margin-bottom: 10px;}
+.jItem01{ width:247px; height:171px; overflow:hidden;margin-bottom: 10px; }
+ 
+ 
+ .dask{
+	width: 240px;
+	height: 45px;
+	overflow: hidden;
+	position: absolute;
+	top: 171px;
+
+}
+.jItem02{float:left; width:330px; height:171px; overflow:hidden;margin-bottom: 10px; }
+ 
+ 
+ .dask1{
+	width: 240px;
+	height: 45px;
+	overflow: hidden;
+	position: absolute;
+	top: 171px;
+
+}</style>
+<script>$(function () {
+$(".jItem01").hover(
+	function () {
+		$(this).find(".dask").stop().delay(50).animate({"top":126,opacity:1},302)
+	 },
+	function () {
+		$(this).find(".dask").stop().animate({"top":171,opacity:0},302)
+	}
+	
+)
+})</script>
+<script>$(function () {
+$(".jItem02").hover(
+	function () {
+		$(this).find(".dask1").stop().delay(50).animate({"top":126,opacity:1},302)
+	 },
+	function () {
+		$(this).find(".dask1").stop().animate({"top":171,opacity:0},302)
+	}
+	
+)
+})</script>
+<div class="kuanghulian"> 
+ <div style=" width:990px; height:62px;" class="jinrongtop"> 
+  <a href="//jr.jd.com/" target="_blank" clstag="sale|keycount|jrdibuhulian|lian00"><img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img14.360buyimg.com/cms/jfs/t304/176/395426471/11326/4587655b/540f1b65Nd08d9557.jpg" alt="" height="62" width="990"></a> 
+ </div> 
+ <ul> 
+  <li> 
+   <div class="jItem01"> 
+    <div class="dask" style="opacity:0;"> 
+     <img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img11.360buyimg.com/cms/jfs/t565/43/478031708/3817/6374e7f6/546b3c28N4351c7d3.png" alt="" height="45" width="240"> 
+    </div> 
+    <a href="//sale.jd.com/act/vfdp4XgcSbxYPuKF.html?from=zctgw00003" target="_blank" clstag="sale|keycount|8039849|5"><img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img13.360buyimg.com/cms/jfs/t2737/23/2736444870/21128/1e6c3941/5770f98eNf6485539.jpg" alt="" height="171" width="240"></a> 
+   </div> </li> 
+  <li> 
+   <div class="jItem01"> 
+    <div class="dask" style="opacity:0;"> 
+     <img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img13.360buyimg.com/cms/jfs/t667/97/480990427/3620/f2784551/546b3c23Na88d20a1.png" alt="" height="45" width="240"> 
+    </div> 
+    <a href="//sale.jd.com/act/zLIMPtE8c0.html?t=1465352110790" target="_blank" clstag="sale|keycount|8039849|6"><img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img14.360buyimg.com/cms/jfs/t2992/50/1043210317/25747/1c354f4/57723d37N1438c7e6.jpg" alt="" height="171" width="240"></a> 
+   </div> </li> 
+  <li> 
+   <div class="jItem01"> 
+    <div class="dask" style="opacity:0;"> 
+     <img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img13.360buyimg.com/cms/jfs/t1582/230/433287274/3921/d44184ab/5583c049N5a9f1954.png" alt="" height="45" width="240"> 
+    </div> 
+    <a href="https://sale.jd.com/act/Q0svczfrHPLxl3TN.html" target="_blank" clstag="sale|keycount|8039849|7"><img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img12.360buyimg.com/cms/jfs/t2617/304/2849134360/24586/78d787ab/577492b8N841f46f2.jpg" alt="" height="171" width="240"></a> 
+   </div> </li> 
+  <li> 
+   <div class="jItem01"> 
+    <div class="dask" style="opacity:0;"> 
+     <img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img14.360buyimg.com/cms/jfs/t1537/206/407955095/3866/80893df1/558017faN587f746f.png" alt="" height="45" width="240"> 
+    </div> 
+    <a href="//jr.jd.com/" target="_blank" clstag="sale|keycount|5325222|7"><img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img10.360buyimg.com/cms/jfs/t2395/24/1441027214/28014/9b0d6048/56a5ba7dNd01c7baf.jpg" alt="" height="171" width="240"></a> 
+   </div> </li> 
+ </ul> 
+ <ul> 
+  <li> 
+   <div class="jItem02"> 
+    <div class="dask1" style="opacity:0;"> 
+     <img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img13.360buyimg.com/cms/jfs/t667/97/480990427/3620/f2784551/546b3c23Na88d20a1.png" alt="" height="45" width="240"> 
+    </div> 
+    <a href="//sale.jd.com/act/hXCYJpKU3xAFr.html" target="_blank" clstag="sale|keycount|8039849|9"><img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img10.360buyimg.com/cms/jfs/t2668/229/2769762772/18783/a8f975e8/5770f9c9N0e2c1566.jpg" alt="" height="171" width="240"></a>&nbsp; 
+    <a href="//dq.jd.com/item.action?skuId=100200001" target="_blank" clstag="sale|keycount|8039849|10"><img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img14.360buyimg.com/cms/jfs/t1990/63/2056874659/22653/c0ae1279/569ca800N5da91fab.jpg" alt="" height="171" width="240"></a> 
+   </div> </li> 
+  <li> 
+   <div class="jItem02"> 
+    <div class="dask1" style="opacity:0;"> 
+     <img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img11.360buyimg.com/cms/jfs/t1657/131/214858790/3856/e915dd2f/55810a3aN9523af58.png" alt="" height="45" width="240"> 
+    </div> 
+    <a href="//dc2.jd.com/?EfrsQQ" target="_blank" clstag="sale|keycount|8039849|11"><img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img11.360buyimg.com/cms/jfs/t2581/239/2709436928/20655/958c6a1/5770f9e2N833465e8.jpg" alt="" height="171" width="240"></a> 
+   </div> </li> 
+  <li> 
+   <div class="jItem02"> 
+    <div class="dask1" style="opacity:0;"> 
+     <img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img10.360buyimg.com/cms/jfs/t529/153/482385457/3612/b6df4b8a/546b3c23N9405c745.png" alt="" height="45" width="240"> 
+    </div> 
+    <a href="http://www.baitiao.com/" target="_blank" clstag="sale|keycount|8039849|12"><img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img14.360buyimg.com/cms/jfs/t2962/120/966703815/21767/b460aecf/5770f9f7N350849d0.jpg" alt="" height="171" width="240"></a> 
+   </div> </li> 
+  <li> 
+   <div class="jItem02"> 
+    <img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img11.360buyimg.com/cms/jfs/t2800/364/1845474395/25126/f74229a5/574c004cN9859dd08.jpg" alt="" height="171" width="240"> 
+   </div> </li> 
+ </ul>
+</div>
+	</div>
+</div>
+     </div>
+
+	 </div>
+
+		 	</div>
+     </div>
+</div>
+
+      <div class="d-layout-area " >
+     <div class='d-layout' id="13400908"   >
+	<div class='d-layout-one w990 '>
+	 
+
+
+		<div class=' sidePanel-153707' instanceId='13400909'  style="margin-bottom: 10px;" module-name="sidePanel" >
+
+	
+     <div class="mc" style=";min-height:0px;">
+		  <div class="j-module" module-function="base" module-param="{height:236,top:300,width:120,horizontal:2,show:1 
+}">
+   <div class="J-container">
+<img class="J_imgLazyload" src="//img14.360buyimg.com/cms/g10/M00/13/04/rBEQWFFj4PUIAAAAAAAESxyqJLUAADvdAIHC9oAAARj186.gif"  original="//img10.360buyimg.com/cms/jfs/t2656/232/2130669966/41823/f4162c72/5758ff28Na82e2b28.png" width="120" height="236" alt="">
+<style>.J-container{
+        margin-left: 505px !important;
+
+      }</style>
+</div>
+</div>
+     </div>
+
+	 </div>
+
+
+
+		<div class=' userdefined-153704' instanceId='8039860'  style="margin-bottom:0px;" module-name="UserDefine" >
+
+	
+     <div class="mc" style=";min-height:0px;">
+		 <div class="j-module" module-function="autoCenter,rid" module-param="{}">
+	<div class="userDefinedArea" style="width:auto;">
+		<script type="text/javascript">var jaq = jaq || [];
+    jaq.push(['account','UA-J2011-12']);
+    jaq.push(['domain','jr.jd.com']);
+    (function() {
+        var ja = document.createElement('script'); ja.type = 'text/javascript'; ja.async = true;
+        ja.src = ('https:' == document.location.protocol ? 'https://jrclick' : 'https://jrclick') + '.jd.com/wl.dev.js';
+        var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(ja,s);
+    })();</script>
+	</div>
+</div>
+     </div>
+
+	 </div>
+
+		 	</div>
+     </div>
+</div>
+
+	
+
+	
+<!-- add by zhaohongbo -->
+<!-- 活动页面参数向下传递 -->
+<script>
+    (function() {
+        var jHref = $("a[href*='//'], area[href*='//']"), search = location.search;
+        jHref.each(function() {
+            var _this = $(this);
+            var href = _this.attr("href"), h = href, anchor = '';
+            if (href.indexOf('#') != -1) {
+                href = href.substring(0, href.indexOf('#'));
+                anchor = h.substring(h.indexOf('#'));
+            }
+
+            var arrUrl = href.split('?');
+            if(arrUrl.length === 1) {
+                _this.attr("href", href + search + anchor);
+            } else {
+                _this.attr("href", href + "&" + search.substring(1) + anchor);
+            }
+        });
+    })()
+</script>					<div align="center">
+				
+			</div>
+							 </div>
+	 <div class="d-price-tips" style="padding:20px 0; text-align:center; font-size:14px; line-height:16px;"><em style="display:inline-block; vertical-align:middle; width:16px; height:16px; margin-right:5px; background:url(//img11.360buyimg.com/cms/jfs/t2125/60/2123383296/1541/97f969bc/56b197daNefbff474.gif)"></em>因可能存在系统缓存、页面更新导致价格变动异常等不确定性情况出现，如您发现活动商品标价或促销信息有异常，请您立即联系我们，以便我们及时补正。</div>
+	<div class="d-pad">
+	<div class="f-copyright">
+    <div class="grid-1200 footerHolder">
+        <div class="footer-nav">
+            <p>
+                <a href="//jrhelp.jd.com/show/getProblemInfo?id=688" target="_blank" clstag="jr|keycount|jr_shouye|footer1">关于京东金融</a><span class="footer-nav-cut">|</span>
+                <a href="//jrhelp.jd.com/show/getProblemInfo?id=169" target="_blank" clstag="jr|keycount|jr_shouye|footer2">关于京东小金库</a><span class="footer-nav-cut">|</span>
+                <a href="//jrhelp.jd.com/show/getProblemInfo?id=685" target="_blank" clstag="jr|keycount|jr_shouye|footer3">关于京东钱包</a><span class="footer-nav-cut">|</span>
+                <a href="//jrhelp.jd.com/show/getProblemInfo?id=244" target="_blank">关于京东白条</a>
+                <span class="footer-nav-cut">|</span>
+                <a href="//jrhelp.jd.com/show/showCustomService" target="_blank" clstag="jr|keycount|jr_shouye|footer4">联系我们</a><span class="footer-nav-cut">|</span>
+                <a href="//jrhelp.jd.com/show/getProblemInfo?id=144" target="_blank" clstag="jr|keycount|jr_shouye|footer5">免责声明</a>
+            </p>
+            <p>
+                Copyright © 2004-2016 京东JD.com 版权所有<span class="footer-nav-cut">|</span>投资有风险，购买需谨慎
+            </p>
+        </div>
+        <div class="footer-contact">
+            <div class="f-contact-time">联系我们<span>（9:00-22:00）</span></div>
+            <div class="f-contact-content">
+                <div class="f-cc-left">
+                    <span class="f-cc-item">个人业务：95118</span>
+                    <span class="f-cc-item">企业业务：400 088 8816</span>
+                </div>
+                <div class="f-cc-mid">
+                    <a class="f-cc-link item-JIMI" href="//jimi.jd.com/index.action?source=financing" target="_blank" clstag="jr|keycount|jr_shouye|footerjimi">咨询JIMI</a>
+                    <a class="f-cc-link item-kefu" href="//chat.jd.com/jd/chat?entry=jd_jr" target="_blank" clstag="jr|keycount|jr_shouye|footerkf">在线客服</a>
+                </div>
+                <div class="f-cc-right">
+                    <a class="f-cc-link item-mail" target="_blank" href="//jr.jd.com/mail/index.html" clstag="jr|keycount|jr_shouye|footerkfmail">客服邮箱</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+	</div>
+	
+	<!--201509 by cdwanchuan-->
+	<script type="text/javascript" src="//static.360buyimg.com/jshop/sale-p/view/20151221110035/script/??module/utils.js,module/Module.js?t=201605122327"></script>
+	<script type="text/javascript" src="//static.360buyimg.com/jshop/sale-p/view/20151221110035/script/??CookieUtil.js,lib-v1.js?t=201605122327"></script>
+	<script src="//static.360buyimg.com/jshop/sale-p/view/20151221110035/script/view/entrance.js?t=201605122327"></script>
+	<script src="//static.360buyimg.com/jshop/sale-p/view/20151221110035/script/??jshop.lib-v1.js?t=201605122327"></script>
+		<script language="javascript" src="//static.360buyimg.com/jshop/sale-p/view/20151221110035/script/??advertise.js?t=201605122327"></script>
+			<script id="jshopSidebar" src="//static.360buyimg.com/jshop/common/utility/sidebar/sidebar.js?type=0&id=546876" type="text/javascript" charset="UTF-8"></script>
+<img src="//jcm.jd.com/pre" width="1" height="1" style="display:none;"/>	
+	<script type="text/javascript" src="//wl.jd.com/wl.js"></script>
+
+</body>
+</html>
